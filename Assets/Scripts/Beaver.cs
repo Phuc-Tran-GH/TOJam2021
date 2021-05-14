@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Beaver : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D rigidbody2D;
 	[SerializeField] private GameObject biteCollider;
-
 	[SerializeField] private Animator animator;
 
 	public float BiteDuration { get; private set; } = 0.2f;
@@ -14,6 +12,7 @@ public class Beaver : MonoBehaviour
 
 	private bool dead;
 	private bool wasShot;
+	private bool canBite = true;
 
 	public void ShootOutOfCannon(Vector2 direction)
 	{
@@ -39,13 +38,15 @@ public class Beaver : MonoBehaviour
 
 	private void Bite()
 	{
-		if (!dead && !biteCollider.activeSelf)
+		if (!dead && canBite && !biteCollider.activeSelf)
 		{
 			// Enable bite collider
 			biteCollider.SetActive(true);
 			
 			// Show biting sprite
 			animator.SetBool("biting", true);
+
+			canBite = false;
 
 			Invoke(nameof(FinishBite), BiteDuration);
 		}
@@ -56,6 +57,12 @@ public class Beaver : MonoBehaviour
 		CancelInvoke(nameof(FinishBite));
 		biteCollider.SetActive(false);
 		animator.SetBool("biting", false);
+		Invoke(nameof(FinishCooldown), BiteCooldown);
+	}
+
+	private void FinishCooldown()
+	{
+		canBite = true;
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
