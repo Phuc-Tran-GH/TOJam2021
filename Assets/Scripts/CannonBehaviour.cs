@@ -9,6 +9,9 @@ public class CannonBehaviour : MonoBehaviour
     private LineRenderer lr;
     public Beaver beaver;
     private bool shot = false;
+    private Vector2 direction;
+    private float momentumX = 1000;
+    private float momentumY = 200;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +34,16 @@ public class CannonBehaviour : MonoBehaviour
     {
     	FaceMouse();
         if (Input.GetMouseButtonDown(0) && !shot){
+            Vector3 mousePosition = Input.mousePosition;
             beaver = FindObjectOfType(typeof(Beaver)) as Beaver; 
-            beaver.ShootOutOfCannon();
-            Debug.Log("Mouse down");
+            float finalY = Mathf.Abs(mousePosition.y) - 100;
+            //if (finalY < 0) finalY = 0;
+            
+            momentumY = (momentumX / 5) + finalY;
+            beaver.ShootOutOfCannon(new Vector2(momentumX, momentumY));
+
+
+
             shot = true;
         }
         //RedrawLine();
@@ -56,7 +66,7 @@ public class CannonBehaviour : MonoBehaviour
 
     void RedrawLine(float x, float y)
     {
-        Vector2 direction = new Vector2(
+        direction = new Vector2(
             x - lr.transform.position.x,
             y - lr.transform.position.y
         );
