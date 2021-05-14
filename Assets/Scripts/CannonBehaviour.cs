@@ -41,7 +41,7 @@ public class CannonBehaviour : MonoBehaviour
             mousePosition.y - transform.position.y
         );
 
-        transform.right = -direction;
+        transform.right = direction;
         RedrawLine(mousePosition.x, mousePosition.y);
 
     }
@@ -53,7 +53,7 @@ public class CannonBehaviour : MonoBehaviour
             y - lr.transform.position.y
         );
 
-        lr.transform.right = -direction;
+        lr.transform.right = direction;
 
         // Set some positions
         Vector3[] positions = new Vector3[2];
