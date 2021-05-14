@@ -8,11 +8,17 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private GameObject biteCollider;
 
 	public float BiteDuration { get; private set; } = 0.2f;
-	
+	public float BiteCooldown { get; private set; } = 0.2f;
+
+
+	private void Start()
+	{
+		rigidbody2D.AddForce(new Vector2(500.0f, 350));
+		rigidbody2D.AddTorque(-1f);
+	}
 	
 	private void Update()
 	{
-		rigidbody2D.AddForce(new Vector2(2.0f, 0)); // TODO remove this after cannon is added
 		HandleInput();
 	}
 
