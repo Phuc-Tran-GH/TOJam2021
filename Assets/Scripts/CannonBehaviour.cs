@@ -7,6 +7,8 @@ public class CannonBehaviour : MonoBehaviour
 {
     
     private LineRenderer lr;
+    public Beaver beaver;
+    private bool shot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,12 @@ public class CannonBehaviour : MonoBehaviour
     void Update()
     {
     	FaceMouse();
+        if (Input.GetMouseButtonDown(0) && !shot){
+            beaver = FindObjectOfType(typeof(Beaver)) as Beaver; 
+            beaver.ShootOutOfCannon();
+            Debug.Log("Mouse down");
+            shot = true;
+        }
         //RedrawLine();
     }
 

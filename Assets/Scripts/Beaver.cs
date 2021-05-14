@@ -13,6 +13,10 @@ public class Beaver : MonoBehaviour
 
 	private void Start()
 	{
+
+	}
+
+	public void ShootOutOfCannon(){
 		rigidbody2D.AddForce(new Vector2(500.0f, 350));
 		rigidbody2D.AddTorque(-1f);
 	}
