@@ -29,7 +29,6 @@ public class healthbar : MonoBehaviour
         }
 
         if(cursec > 99){
-            Debug.Log(cursec + " IS 100 MOFO");
             goingUp = false;
         } else if (cursec < 2) {
             goingUp = true;
