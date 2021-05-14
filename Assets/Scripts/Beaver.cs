@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Beaver : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D rigidbody2D;
 	[SerializeField] private GameObject biteCollider;
 
+	[SerializeField] private Animator animator;
+
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
 
+	private bool dead;
 
-	private void Start()
+	public void ShootOutOfCannon(Vector2 direction)
 	{
-
-	}
-
-	public void ShootOutOfCannon(Vector2 direction){
+		dead = false;
 		rigidbody2D.AddForce(direction);
 		rigidbody2D.AddTorque(-1);
 	}
@@ -36,9 +34,14 @@ public class Beaver : MonoBehaviour
 
 	private void Bite()
 	{
-		if (!biteCollider.activeSelf)
+		if (!dead && !biteCollider.activeSelf)
 		{
+			// Enable bite collider
 			biteCollider.SetActive(true);
+			
+			// Show biting sprite
+			animator.SetBool("biting", true);
+
 			Invoke(nameof(FinishBite), BiteDuration);
 		}
 	}
@@ -47,6 +50,7 @@ public class Beaver : MonoBehaviour
 	{
 		CancelInvoke(nameof(FinishBite));
 		biteCollider.SetActive(false);
+		animator.SetBool("biting", false);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -57,8 +61,22 @@ public class Beaver : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Tree"))
+		{
+			OnTreeBit();
+		}
+	}
+
 	private void OnTreeCollision()
 	{
-		// TODO
+		dead = true;
+		animator.SetBool("dead", true);
+	}
+
+	private void OnTreeBit()
+	{
+		animator.Play("BeaverBite");
 	}
 }

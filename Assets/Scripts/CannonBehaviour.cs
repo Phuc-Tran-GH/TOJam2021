@@ -10,7 +10,7 @@ public class CannonBehaviour : MonoBehaviour
     public Beaver beaver;
     private bool shot = false;
     private Vector2 direction;
-    private float momentumX = 1000;
+    private float momentumX = 1200;
     private float momentumY = 200;
 
     // Start is called before the first frame update

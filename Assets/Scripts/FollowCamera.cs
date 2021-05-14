@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     private GameObject beaver;
+    [SerializeField] private float xOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class FollowCamera : MonoBehaviour
     void Update()
     {
         Vector3 pos = gameObject.transform.position;
-        pos.x = beaver.transform.position.x;
+        pos.x = beaver.transform.position.x + xOffset;
 
         gameObject.transform.position = pos;
     }
