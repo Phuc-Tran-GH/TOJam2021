@@ -1,12 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class DistanceText : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI distanceText;
-	[SerializeField] private Transform beaverTransform;
+
+	private Transform beaverTransform;
+
+	private void Awake()
+	{
+		beaverTransform = GameManager.instance.Beaver.transform;
+	}
 
 	private void Update()
 	{

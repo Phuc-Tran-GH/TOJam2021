@@ -1,22 +1,24 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Beaver : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D rigidbody2D;
 	[SerializeField] private GameObject biteCollider;
+	[SerializeField] private Animator animator;
 
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
 
+	private bool dead;
+	private bool wasShot;
+	private bool canBite = true;
 
-	private void Start()
+	public void ShootOutOfCannon(Vector2 direction)
 	{
-
-	}
-
-	public void ShootOutOfCannon(Vector2 direction){
+		SetDead(false);
+		wasShot = true;
+		transform.rotation = Quaternion.identity;
 		rigidbody2D.AddForce(direction);
 		rigidbody2D.AddTorque(-1);
 	}
@@ -36,9 +38,16 @@ public class Beaver : MonoBehaviour
 
 	private void Bite()
 	{
-		if (!biteCollider.activeSelf)
+		if (!dead && canBite && !biteCollider.activeSelf)
 		{
+			// Enable bite collider
 			biteCollider.SetActive(true);
+			
+			// Show biting sprite
+			animator.SetBool("biting", true);
+
+			canBite = false;
+
 			Invoke(nameof(FinishBite), BiteDuration);
 		}
 	}
@@ -47,6 +56,13 @@ public class Beaver : MonoBehaviour
 	{
 		CancelInvoke(nameof(FinishBite));
 		biteCollider.SetActive(false);
+		animator.SetBool("biting", false);
+		Invoke(nameof(FinishCooldown), BiteCooldown);
+	}
+
+	private void FinishCooldown()
+	{
+		canBite = true;
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -57,8 +73,58 @@ public class Beaver : MonoBehaviour
 		}
 	}
 
+	private void OnCollisionStay2D(Collision2D other)
+	{
+		if (other.gameObject.CompareTag("Ground"))
+		{
+			OnGroundCollision();
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Tree"))
+		{
+			OnTreeBit();
+		}
+	}
+
 	private void OnTreeCollision()
 	{
-		// TODO
+		SetDead(true);
+	}
+
+	private void OnTreeBit()
+	{
+		animator.Play("BeaverBite");
+	}
+
+	private void OnGroundCollision()
+	{
+		// After being shot from a cannon, restart the game once we're touching the ground with no velocity
+		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 0.1f)
+		{
+			if (resetGameCoroutine == null)
+			{
+				resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
+			}
+		}
+	}
+
+	private Coroutine resetGameCoroutine;
+	private IEnumerator ResetGameCoroutine()
+	{
+		yield return new WaitForSeconds(1); // wait a bit before restarting
+		wasShot = false;
+		SetDead(false);
+		GameManager.instance.ResetBeaver();
+		resetGameCoroutine = null;
+		yield return null;
+	}
+
+	private void SetDead(bool isDead)
+	{
+		dead = isDead;
+		animator.SetBool("dead", dead);
 	}
 }
