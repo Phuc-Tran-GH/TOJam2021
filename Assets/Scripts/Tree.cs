@@ -37,4 +37,13 @@ public class Tree : MonoBehaviour
 		seq.append(LeanTween.scale(pointsText.gameObject, new Vector3(1.2f, 1.2f, 1f), 0.3f).setEaseOutBack());
 		seq.append(LeanTween.scale(pointsText.gameObject, Vector3.zero, 0.6f));
 	}
+
+	public void UnBitten()
+    {
+		// Reenable collider
+		collider.enabled = true;
+
+		// Hide bite marks
+		biteMarks.SetActive(false);
+	}
 }
