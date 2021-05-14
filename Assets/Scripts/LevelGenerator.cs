@@ -74,7 +74,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void ClearLevel()
+    public void ClearLevel()
     {
         while(trees.Count > 0)
         {
