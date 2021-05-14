@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public float maxTreeSpacing;
     public float cullDistance;
     public Vector3 levelStartLocation;
+    public float biomeLength;
 
     private GameObject beaver;
 
@@ -38,7 +39,8 @@ public class LevelGenerator : MonoBehaviour
         {
             if (trees[0].transform.position.x < minX)
             {
-                treePool.ReplaceTree(0, trees[0]);
+                int biomeNumber = (int)((transform.position.x - levelStartLocation.x) / biomeLength) % treePool.GetNumTreeTypes();
+                treePool.ReplaceTree(biomeNumber, trees[0]);
                 trees.Remove(trees[0]);
             }
             else
@@ -57,10 +59,13 @@ public class LevelGenerator : MonoBehaviour
 
         while (lastX < maxX)
         {
-            Tree tree = treePool.GetTree(0);
             Vector3 treePosition = levelStartLocation;
 
             lastX = lastX + Random.Range(minTreeSpacing, maxTreeSpacing);
+
+            int biomeNumber = (int)((lastX - levelStartLocation.x) / biomeLength) % treePool.GetNumTreeTypes();
+
+            Tree tree = treePool.GetTree(biomeNumber);
 
             treePosition.x = lastX;
 
