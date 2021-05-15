@@ -11,8 +11,8 @@ public class CannonBehaviour : MonoBehaviour
     [SerializeField] Beaver beaver;
     public bool shot = false;
     private Vector2 direction;
-    private float momentumX = 1200;
-    private float momentumY = 200;
+    public float cannonPower = 12000.0f;
+
     [SerializeField] private PowerBar powerBar;
 
     [SerializeField] private GameObject[] cannonBarrels;
@@ -42,15 +42,30 @@ public class CannonBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
+        
         FaceMouse();
 
         if (Input.GetMouseButtonDown(0) && !shot) {
-            float finalY = Mathf.Abs(mousePosition.y) - 100;
-            int cursec = powerBar.cursec;
-            momentumY = ((momentumX * (cursec / 100) / 5)) + finalY;
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (mousePosition.x < transform.position.x + 4.25f)
+            {
+                mousePosition.x = transform.position.x + 4.25f;
+            }
+
+            if (mousePosition.y < transform.position.y + 4.25f)
+            {
+                mousePosition.y = transform.position.y + 4.25f;
+            }
+
+            float powerBarPercent = powerBar.GetPowerBarPercent();
+            Vector2 direction = new Vector2(
+                mousePosition.x - transform.position.x,
+                mousePosition.y - transform.position.y
+            );
+            Vector2 power = direction.normalized * cannonPower * (0.5f + 0.5f * powerBarPercent);
+
             beaver.Activate();
-            beaver.ShootOutOfCannon(new Vector2(momentumX, momentumY));
+            beaver.ShootOutOfCannon(new Vector2(power.x, power.y));
             powerBar.Deactivate();
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
@@ -63,6 +78,16 @@ public class CannonBehaviour : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        if (mousePosition.x < transform.position.x + 4.25f)
+        {
+            mousePosition.x = transform.position.x + 4.25f;
+        }
+
+        if (mousePosition.y < transform.position.y + 4.25f)
+        {
+            mousePosition.y = transform.position.y + 4.25f;
+        }
 
         Vector2 direction = new Vector2(
             mousePosition.x - transform.position.x,

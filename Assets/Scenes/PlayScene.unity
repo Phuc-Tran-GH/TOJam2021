@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: startingPosition.y
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 204328848453755529, guid: 4aded79e34ad440bc9e6ae9354a943a9,
+        type: 3}
+      propertyPath: cannonPower
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 5188965192327158069, guid: 4aded79e34ad440bc9e6ae9354a943a9,
         type: 3}
       propertyPath: m_IsActive

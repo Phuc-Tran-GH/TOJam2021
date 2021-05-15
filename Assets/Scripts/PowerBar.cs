@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class PowerBar : MonoBehaviour
 {
 	public Image healthBarImage;
-    public int cursec;
+    public float powerBarMaxTime;
+    private float powerBarTime = 0;
     private bool goingUp;
     private bool shot = false;
     private float momentumX = 1000;
@@ -12,7 +13,7 @@ public class PowerBar : MonoBehaviour
 
     void Start()
     {
-        cursec = 0;
+        powerBarTime = 0;
         goingUp = true;
         otherBar = GameObject.Find("/Canvas/HealthBar");
     }
@@ -24,20 +25,22 @@ public class PowerBar : MonoBehaviour
     }
 
     void printBar(){
+
         if (goingUp){
-            cursec++;
+            powerBarTime += Time.deltaTime;
         } else {
-            cursec--;
+            powerBarTime -= Time.deltaTime;
         }
 
-        if(cursec > 99){
+        if(powerBarTime > powerBarMaxTime){
+            powerBarTime = powerBarMaxTime;
             goingUp = false;
-        } else if (cursec < 2) {
+        } else if (powerBarTime <= 0) {
+            powerBarTime = 0;
             goingUp = true;
-            cursec++;
         }
 
-        healthBarImage.fillAmount = Mathf.Clamp(cursec / 100f, 0, 1f);
+        healthBarImage.fillAmount = Mathf.Clamp(powerBarTime / powerBarMaxTime, 0, 1f);
     }
 
     public void Deactivate(){
@@ -48,5 +51,10 @@ public class PowerBar : MonoBehaviour
     public void Activate(){
         otherBar.SetActive(true);
         gameObject.SetActive(true);
+    }
+
+    public float GetPowerBarPercent()
+    {
+        return powerBarTime / powerBarMaxTime;
     }
 }

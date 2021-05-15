@@ -242,4 +242,4 @@ MonoBehaviour:
   beaver: {fileID: 0}
   xOffset: 6.5
   defaultY: 2.14
-  followBeaverHeight: 7.75
+  followBeaverHeight: 10
