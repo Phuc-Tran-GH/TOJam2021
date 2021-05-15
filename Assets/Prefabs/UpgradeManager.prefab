@@ -55,10 +55,10 @@ MonoBehaviour:
   - 1.4
   gliderUpgradeMultipliers:
   - 1
-  - 1.1
-  - 1.2
-  - 1.3
-  - 1.4
+  - 0.5
+  - 0.25
+  - 0.125
+  - 0.05
   slapUpgradeMultipliers:
   - 0
   - 1

@@ -23,12 +23,23 @@ public class Beaver : MonoBehaviour
 	private bool wasShot;
 	private bool canBite = true;
 	private bool canPlayGroundSound = true;
+	private bool canSlap;
 
 	private float defaultGravity;
 
     private void Start()
     {
 		defaultGravity = rigidbody2D.gravityScale;
+    }
+
+	public void Activate()
+    {
+		gameObject.SetActive(true);
+    }
+
+	public void Deactivate()
+    {
+		gameObject.SetActive(false);
     }
 
     public void ShootOutOfCannon(Vector2 direction)
@@ -40,6 +51,7 @@ public class Beaver : MonoBehaviour
 		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
+		Invoke(nameof(AllowSlap), 0.1f);
 
 		glider.ResetGlider();
 		if (UpgradeManager.instance.GetGliderUpgradeNum() > 0)
@@ -69,7 +81,7 @@ public class Beaver : MonoBehaviour
 
 	private void HandleInput()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 		{
 			Bite();
 		}
