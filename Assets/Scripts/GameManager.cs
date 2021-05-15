@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] private CannonBehaviour cannon;
 	[SerializeField] private LevelGenerator levelGenerator;
 	[SerializeField] private Transform startPosition;
+	[SerializeField] private FollowCamera camera;
 	
 	public int Wood { get; private set; }
 	public Beaver Beaver => beaver;
@@ -30,6 +31,7 @@ public class GameManager : Singleton<GameManager>
 	{
 		cannon.shot = false;
 		beaver.transform.position = startPosition.position;
+		camera.ResetCamera();
 		levelGenerator.ClearLevel();
 	}
 }

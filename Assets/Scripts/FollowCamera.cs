@@ -11,10 +11,22 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         beaver = GameObject.Find("Beaver");
+        ResetCamera();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        Vector3 pos = gameObject.transform.position;
+        pos.x = beaver.transform.position.x + xOffset;
+
+        if (pos.x > gameObject.transform.position.x)
+        {
+            gameObject.transform.position = pos;
+        }
+    }
+
+    public void ResetCamera()
     {
         Vector3 pos = gameObject.transform.position;
         pos.x = beaver.transform.position.x + xOffset;
