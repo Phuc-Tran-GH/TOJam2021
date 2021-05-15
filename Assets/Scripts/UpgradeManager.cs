@@ -36,17 +36,20 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public int GetCannonUpgradeCost()
     {
-        return cannonUpgadeCosts[cannonUpgradeNum];
+        int index = Mathf.Min(cannonUpgradeNum, cannonUpgadeCosts.Length - 1);
+        return cannonUpgadeCosts[index];
     }
 
     public int GetGliderUpgradeCost()
     {
-        return gliderUpgradeCosts[gliderUpgradeNum];
+        int index = Mathf.Min(gliderUpgradeNum, gliderUpgradeCosts.Length - 1);
+        return gliderUpgradeCosts[index];
     }
 
     public int GetSlapUpgradeCost()
     {
-        return slapUpgradeCosts[slapUpgradeNum];
+        int index = Mathf.Min(slapUpgradeNum, slapUpgradeCosts.Length - 1);
+        return slapUpgradeCosts[index];
     }
 
     public float GetCannonUpgradeMultiplier()
@@ -61,7 +64,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public int GetSlapUpgradeLevel()
     {
-        return (int)slapUpgradeMultipliers[slapUpgradeNum] - 1;
+        return (int)slapUpgradeMultipliers[slapUpgradeNum];
     }
 
     public void UpgradeCannon()
@@ -102,6 +105,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
             slapUpgradeNum++;
             SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
             UISounds.instance.PlayUpgradeSound();
+            
+            GameManager.instance.Beaver.SetTail(slapUpgradeNum);
         }
         else
         {

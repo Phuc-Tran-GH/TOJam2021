@@ -8,6 +8,8 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private Animator animator;
 	[SerializeField] private AudioSource audio;
 	[SerializeField] private Glider glider;
+	[SerializeField] private Sprite[] tailSprites;
+	[SerializeField] private SpriteRenderer tailRenderer;
 
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
@@ -52,6 +54,7 @@ public class Beaver : MonoBehaviour
 		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
+		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel();
 		Invoke(nameof(AllowSlap), 0.1f);
 
 		glider.ResetGlider();
@@ -161,7 +164,7 @@ public class Beaver : MonoBehaviour
 	private void OnGroundStay()
 	{
 		// After being shot from a cannon, restart the game once we're touching the ground with no velocity
-		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 0.1f)
+		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 1f)
 		{
 			if (resetGameCoroutine == null)
 			{
@@ -179,6 +182,7 @@ public class Beaver : MonoBehaviour
 		{
 			rigidbody2D.AddForce(new Vector2(400, 800));
 			numSlaps--;
+			animator.Play("BeaverJump");
 		}
 	}
 
@@ -188,7 +192,6 @@ public class Beaver : MonoBehaviour
 		yield return new WaitForSeconds(1); // wait a bit before restarting
 
 		wasShot = false;
-		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel();
 		canSlap = false;
 
 		//open upgrade panel
@@ -210,6 +213,7 @@ public class Beaver : MonoBehaviour
 		
 		if (isDead && resetGameCoroutine == null)
 		{
+			GameManager.instance.CheckFurthestDistance();
 			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 		}
 	}
@@ -232,5 +236,11 @@ public class Beaver : MonoBehaviour
 	private void AllowSlap()
 	{
 		canSlap = true;
+	}
+
+	public void SetTail(int tail)
+	{
+		int index = Mathf.Clamp(tail, 0, tailSprites.Length - 1);
+		tailRenderer.sprite = tailSprites[index];
 	}
 }
