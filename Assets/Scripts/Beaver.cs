@@ -135,6 +135,8 @@ public class Beaver : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1); // wait a bit before restarting
 
+		wasShot = false;
+
 		//open upgrade panel
 		UpgradeManager.instance.OpenUpgradePanel();
 
@@ -146,11 +148,6 @@ public class Beaver : MonoBehaviour
 	{
 		dead = isDead;
 		animator.SetBool("dead", dead);
-
-		if (!isDead)
-		{
-			wasShot = false;
-		}
 	}
 
 	private void PlayGroundSound()
