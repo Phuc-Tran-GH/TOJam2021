@@ -36,6 +36,11 @@ public class Beaver : MonoBehaviour
 	private void Update()
 	{
 		HandleInput();
+
+		if (transform.position.y > 7.75f)
+		{
+			transform.position = new Vector3(transform.position.x, 7.75f, transform.position.z);
+		}
 	}
 
 	private void HandleInput()
@@ -129,8 +134,6 @@ public class Beaver : MonoBehaviour
 	private IEnumerator ResetGameCoroutine()
 	{
 		yield return new WaitForSeconds(1); // wait a bit before restarting
-		wasShot = false;
-		SetDead(false);
 
 		//open upgrade panel
 		UpgradeManager.instance.OpenUpgradePanel();
@@ -139,10 +142,15 @@ public class Beaver : MonoBehaviour
 		yield return null;
 	}
 
-	private void SetDead(bool isDead)
+	public void SetDead(bool isDead)
 	{
 		dead = isDead;
 		animator.SetBool("dead", dead);
+
+		if (!isDead)
+		{
+			wasShot = false;
+		}
 	}
 
 	private void PlayGroundSound()

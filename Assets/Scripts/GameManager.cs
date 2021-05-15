@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 	{
 		cannon.shot = false;
 		beaver.transform.position = startPosition.position;
+		beaver.SetDead(false);
 		levelGenerator.ClearLevel();
 	}
 }
