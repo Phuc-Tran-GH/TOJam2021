@@ -22,6 +22,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public event Action<int> GliderCostChangedEvent;
     public event Action<int> SlapCostChangedEvent;
 
+    public CannonUpgradeIconScript cannonUpgradeIcon;
+    public GliderUpgradeIconScript gliderUpgradeIcon;
+    public BounceUpgradeIconScript bounceUpgradeIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +79,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             cannonUpgradeNum++;
             CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
             UISounds.instance.PlayUpgradeSound();
+            cannonUpgradeIcon.UpgradeIcon(cannonUpgradeNum);
         }
         else
         {
@@ -90,6 +95,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             gliderUpgradeNum++;
             GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
             UISounds.instance.PlayUpgradeSound();
+            gliderUpgradeIcon.UpgradeIcon(gliderUpgradeNum);
         }
         else
         {
@@ -107,6 +113,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             UISounds.instance.PlayUpgradeSound();
             
             GameManager.instance.Beaver.SetTail(slapUpgradeNum);
+            bounceUpgradeIcon.UpgradeIcon(slapUpgradeNum);
         }
         else
         {

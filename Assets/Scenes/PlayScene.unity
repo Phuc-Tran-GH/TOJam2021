@@ -258,6 +258,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aded79e34ad440bc9e6ae9354a943a9, type: 3}
+--- !u!114 &263447010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6711591462806833311, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae643d6d711a44b89427fb4100d80eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &517042896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3250574684638447789, guid: 3a11ef485e3cd436f9e4159cd0382f0f,
@@ -787,6 +799,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1011609091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4470803706388229658, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b9ed2d4165245a8be38a981862c687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050650634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809127390189821830, guid: 3bd665d4d71d64ea3ab4585a490990d8,
@@ -889,6 +913,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b5091f7139384cdd9038425a472593c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1341729483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 859596401563775519, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1425020769
@@ -1408,6 +1444,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
+--- !u!1 &1573221980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2809127389903670468, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573221984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573221980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77f688068c4e4c9f8820fb32fc0ef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteArray:
+  - {fileID: 21300000, guid: fd83b4c8ffa0a4da286e70f64f1cf036, type: 3}
+  - {fileID: 21300000, guid: db7c4d2133dd044deaf32ee3fbfa1736, type: 3}
+  - {fileID: 21300000, guid: 2104aaff6ead847d58022477469701a3, type: 3}
+  - {fileID: 21300000, guid: e282e147da1d14e19a70c17e7c45fcea, type: 3}
+  image: {fileID: 1341729483}
 --- !u!1001 &1598235654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1954,5 +2014,20 @@ PrefabInstance:
       propertyPath: upgradePanel
       value: 
       objectReference: {fileID: 1050650634}
+    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
+        type: 3}
+      propertyPath: cannonUpgradeIcon
+      value: 
+      objectReference: {fileID: 1011609091}
+    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
+        type: 3}
+      propertyPath: gliderUpgradeIcon
+      value: 
+      objectReference: {fileID: 263447010}
+    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
+        type: 3}
+      propertyPath: bounceUpgradeIcon
+      value: 
+      objectReference: {fileID: 1573221984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92e15db92863b9409135b868233db42, type: 3}
