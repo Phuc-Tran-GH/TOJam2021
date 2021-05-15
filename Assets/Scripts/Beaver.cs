@@ -39,6 +39,7 @@ public class Beaver : MonoBehaviour
 
 	public void Deactivate()
     {
+		glider.gameObject.SetActive(false);
 		gameObject.SetActive(false);
     }
 

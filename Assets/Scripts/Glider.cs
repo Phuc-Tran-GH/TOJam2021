@@ -5,6 +5,8 @@ using UnityEngine;
 public class Glider : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject beaver;
+    [SerializeField] private Vector3 beaverOffset;
 
     public Sprite[] gliderSprites;
 
@@ -23,6 +25,7 @@ public class Glider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = beaver.transform.position + beaverOffset;
         if (deployed)
         {
             deployTimerCountdown -= Time.deltaTime;
