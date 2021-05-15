@@ -28,11 +28,11 @@ public class Beaver : MonoBehaviour
 	private bool canPlayGroundSound = true;
 	private bool canSlap;
 
-	private float defaultGravity;
+	private float defaultGravity = 0.9f;
 
     private void Start()
     {
-		defaultGravity = rigidbody2D.gravityScale;
+		
     }
 
 	public void Activate()

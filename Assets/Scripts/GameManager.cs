@@ -40,7 +40,8 @@ public class GameManager : Singleton<GameManager>
 	public void ResetBeaver()
 	{
 		cannon.shot = false;
-		beaver.transform.position = startPosition.position;
+		cannon.ResetCannon();
+		beaver.transform.position = new Vector3(startPosition.position.x, startPosition.position.y + cannon.yOffsets[UpgradeManager.instance.GetCannonUpgradeNum()], startPosition.position.z);
 		beaver.SetDead(false);
 		beaver.Deactivate();
 		camera.ResetCamera();

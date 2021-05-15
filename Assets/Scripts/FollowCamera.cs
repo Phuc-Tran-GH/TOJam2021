@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    private GameObject beaver;
+    [SerializeField] private GameObject beaver;
     [SerializeField] private float xOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        beaver = GameObject.Find("Beaver");
         ResetCamera();
     }
 

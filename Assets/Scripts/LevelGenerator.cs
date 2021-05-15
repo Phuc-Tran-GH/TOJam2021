@@ -12,14 +12,13 @@ public class LevelGenerator : MonoBehaviour
     public Vector3 levelStartLocation;
     public float biomeLength;
 
-    private GameObject beaver;
+    [SerializeField] private GameObject beaver;
 
     private List<Tree> trees;
 
     // Start is called before the first frame update
     void Start()
     {
-        beaver = GameObject.Find("Beaver");
         trees = new List<Tree>();
     }
 

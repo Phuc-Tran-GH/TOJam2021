@@ -6,14 +6,21 @@ using DottedLine;
 
 public class CannonBehaviour : MonoBehaviour
 {
-    
+
     private LineRenderer lr;
-    public Beaver beaver;
+    [SerializeField] Beaver beaver;
     public bool shot = false;
     private Vector2 direction;
     private float momentumX = 1200;
     private float momentumY = 200;
-    private PowerBar powerBar;
+    [SerializeField] private PowerBar powerBar;
+
+    [SerializeField] private GameObject[] cannonBarrels;
+    [SerializeField] private GameObject[] cannonBases;
+    [SerializeField] private Vector3 startingPosition;
+    [SerializeField] private GameObject rootObject;
+
+    public float[] yOffsets;
 
     // Start is called before the first frame update
     void Start()
@@ -28,19 +35,17 @@ public class CannonBehaviour : MonoBehaviour
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
         */
-        beaver = FindObjectOfType(typeof(Beaver)) as Beaver;
+        ResetCannon();
         beaver.Deactivate();
-
-        powerBar = FindObjectOfType(typeof(PowerBar)) as PowerBar;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
-    	FaceMouse();
+        FaceMouse();
 
-        if (Input.GetMouseButtonDown(0) && !shot){
+        if (Input.GetMouseButtonDown(0) && !shot) {
             float finalY = Mathf.Abs(mousePosition.y) - 100;
             int cursec = powerBar.cursec;
             momentumY = ((momentumX * (cursec / 100) / 5)) + finalY;
@@ -58,7 +63,7 @@ public class CannonBehaviour : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
- 
+
         Vector2 direction = new Vector2(
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y
@@ -84,11 +89,30 @@ public class CannonBehaviour : MonoBehaviour
 
         lr.SetPositions(positions);
 
-                float width =  lr.startWidth;
+        float width = lr.startWidth;
         lr.material.mainTextureScale = new Vector2(Vector2.Distance(lr.GetPosition(0), lr.GetPosition(lr.positionCount - 1)) / lr.widthMultiplier, 1);
 
 
     }
 
+    public void ResetCannon()
+    {
+        int upgradeNum = UpgradeManager.instance.GetCannonUpgradeNum();
 
+        for (int i = 0; i < cannonBarrels.Length; i++)
+        {
+            if (i == upgradeNum)
+            {
+                cannonBarrels[i].SetActive(true);
+                cannonBases[i].SetActive(true);
+            }
+            else
+            {
+                cannonBarrels[i].SetActive(false);
+                cannonBases[i].SetActive(false);
+            }
+        }
+
+        rootObject.transform.position = new Vector3(startingPosition.x, startingPosition.y + yOffsets[upgradeNum], startingPosition.z);
+    }
 }
