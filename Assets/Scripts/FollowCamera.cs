@@ -6,6 +6,8 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private GameObject beaver;
     [SerializeField] private float xOffset;
+    [SerializeField] private float defaultY;
+    [SerializeField] private float followBeaverHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +19,22 @@ public class FollowCamera : MonoBehaviour
     void Update()
     {
         Vector3 pos = gameObject.transform.position;
-        pos.x = beaver.transform.position.x + xOffset;
 
-        if (pos.x > gameObject.transform.position.x)
+        if (beaver.transform.position.x + xOffset > pos.x)
         {
-            gameObject.transform.position = pos;
+            pos.x = beaver.transform.position.x + xOffset;
         }
+
+        if (beaver.transform.position.y > followBeaverHeight)
+        {
+            pos.y = defaultY + beaver.transform.position.y - followBeaverHeight;
+        }
+        else
+        {
+            pos.y = defaultY;
+        }
+
+        gameObject.transform.position = pos;
     }
 
     public void ResetCamera()

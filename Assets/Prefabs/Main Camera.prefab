@@ -239,4 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b2f02c2c4f34768b5dd0ea036253aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beaver: {fileID: 0}
   xOffset: 6.5
+  defaultY: 2.14
+  followBeaverHeight: 7.75
