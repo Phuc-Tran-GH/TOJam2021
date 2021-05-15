@@ -26,6 +26,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public GliderUpgradeIconScript gliderUpgradeIcon;
     public BounceUpgradeIconScript bounceUpgradeIcon;
 
+    public LevelText levelText;
+
     // Start is called before the first frame update
     void Start()
     {

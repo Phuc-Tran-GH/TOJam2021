@@ -346,12 +346,12 @@ PrefabInstance:
     - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.22999993
+      value: -0.22999996
       objectReference: {fileID: 0}
     - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.48000008
+      value: -0.47999993
       objectReference: {fileID: 0}
     - target: {fileID: 1783816442476915862, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
@@ -1010,6 +1010,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447bd8673747c403c978bd00b74811d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1515729751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2201183378827462138, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eded13fe5d7954021bcdb7bd4886aca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1564566884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,7 +1459,9 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4175013093511984264, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
+    - {fileID: 7775674058832098144, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
 --- !u!1 &1573221980 stripped
 GameObject:
@@ -2034,5 +2048,10 @@ PrefabInstance:
       propertyPath: bounceUpgradeIcon
       value: 
       objectReference: {fileID: 1573221984}
+    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
+        type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1515729751}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92e15db92863b9409135b868233db42, type: 3}
