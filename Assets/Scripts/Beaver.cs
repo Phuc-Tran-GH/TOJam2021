@@ -117,7 +117,10 @@ public class Beaver : MonoBehaviour
 		yield return new WaitForSeconds(1); // wait a bit before restarting
 		wasShot = false;
 		SetDead(false);
-		GameManager.instance.ResetBeaver();
+
+		//open upgrade panel
+		UpgradeManager.instance.OpenUpgradePanel();
+
 		resetGameCoroutine = null;
 		yield return null;
 	}

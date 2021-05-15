@@ -20,6 +20,12 @@ public class GameManager : Singleton<GameManager>
 		WoodChangedEvent?.Invoke(Wood);
 	}
 
+	public void SpendWood(int wood)
+    {
+		Wood -= wood;
+		WoodChangedEvent?.Invoke(Wood);
+    }
+
 	public void ResetBeaver()
 	{
 		cannon.shot = false;
