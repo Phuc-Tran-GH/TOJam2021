@@ -271,36 +271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.22999993
-      objectReference: {fileID: 0}
-    - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.48000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783816442476915862, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783816442476915862, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935517959604229882, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935517959604229882, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3908528083778259945, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -356,26 +326,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4685406523269875624, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -1.8570001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685406523269875624, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831702565012502567, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831702565012502567, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -2.091
-      objectReference: {fileID: 0}
     - target: {fileID: 6348967720931465223, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: glider
@@ -385,26 +335,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Beaver
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301285440767462444, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301285440767462444, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8772915174187338485, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8772915174187338485, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12b178d640fb49443956ddfc1cfcbe6f, type: 3}

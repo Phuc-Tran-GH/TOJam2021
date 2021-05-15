@@ -10,6 +10,7 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private Glider glider;
 	[SerializeField] private Sprite[] tailSprites;
 	[SerializeField] private SpriteRenderer tailRenderer;
+	[SerializeField] private GameObject root;
 
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
@@ -37,13 +38,13 @@ public class Beaver : MonoBehaviour
 
 	public void Activate()
     {
-		gameObject.SetActive(true);
+	    root.SetActive(true);
     }
 
 	public void Deactivate()
     {
 		glider.gameObject.SetActive(false);
-		gameObject.SetActive(false);
+		root.SetActive(false);
     }
 
     public void ShootOutOfCannon(Vector2 direction)
@@ -225,7 +226,7 @@ public class Beaver : MonoBehaviour
 			animator.SetBool("deadGround", false);
 		}
 		
-		if (isDead && resetGameCoroutine == null)
+		if (wasShot && isDead && resetGameCoroutine == null)
 		{
 			GameManager.instance.CheckFurthestDistance();
 			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
