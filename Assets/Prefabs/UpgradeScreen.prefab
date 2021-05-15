@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8636551396627391276}
   - component: {fileID: 6280880942675360578}
   - component: {fileID: 3915861436085490335}
-  - component: {fileID: 1870435530494382627}
-  - component: {fileID: 8341806060721351335}
+  - component: {fileID: 8681070079529396507}
   m_Layer: 0
   m_Name: TotalWoodText
   m_TagString: Untagged
@@ -158,20 +157,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1870435530494382627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062603704874051655}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c97995fc3d03eb49ac32bb9388489e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  woodText: {fileID: 3915861436085490335}
---- !u!114 &8341806060721351335
+--- !u!114 &8681070079529396507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,10 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062603704874051655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58435c45efea046809a341012c32e736, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c97995fc3d03eb49ac32bb9388489e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWoodText: {fileID: 3915861436085490335}
+  woodText: {fileID: 3915861436085490335}
 --- !u!1 &2809127388677564786
 GameObject:
   m_ObjectHideFlags: 0

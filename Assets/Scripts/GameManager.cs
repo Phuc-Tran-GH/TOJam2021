@@ -12,12 +12,12 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] private FollowCamera camera;
 
 	public int Wood { get; private set; }
-	public int TotalWood { get; private set; }
+	public int RunWood { get; private set; }
 	public float FurthestDistance { get; private set; }
 	public Beaver Beaver => beaver;
 
 	public event Action<int> WoodChangedEvent;
-	public event Action<int> TotalWoodChangedEvent;
+	public event Action<int> RunWoodChangedEvent;
 
 	private void Start(){
 		powerBar = FindObjectOfType(typeof(PowerBar)) as PowerBar;
@@ -26,15 +26,16 @@ public class GameManager : Singleton<GameManager>
 	public void AddWood(int wood)
 	{
 		Wood += wood;
-		TotalWood += wood;
+		RunWood += wood;
 		WoodChangedEvent?.Invoke(Wood);
-		TotalWoodChangedEvent?.Invoke(Wood);
+		RunWoodChangedEvent?.Invoke(Wood);
 	}
 
 	public void SpendWood(int wood)
     {
 		Wood -= wood;
 		WoodChangedEvent?.Invoke(Wood);
+		Debug.Log(RunWood);
     }
 
 	public void ResetBeaver()
@@ -45,11 +46,9 @@ public class GameManager : Singleton<GameManager>
 		beaver.Deactivate();
 		camera.ResetCamera();
 		levelGenerator.ClearLevel();
-
-		
 		
 		powerBar.Activate();
-		Wood = 0;
+		RunWood = 0;
 		AddWood(0);
 	}
 
