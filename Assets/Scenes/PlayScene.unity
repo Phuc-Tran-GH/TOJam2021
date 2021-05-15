@@ -230,6 +230,7 @@ MonoBehaviour:
   cannon: {fileID: 1358765280}
   levelGenerator: {fileID: 625895626}
   startPosition: {fileID: 2113545808}
+  camera: {fileID: 807894167}
 --- !u!4 &606342232
 Transform:
   m_ObjectHideFlags: 0
@@ -500,6 +501,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1276013928}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &807894167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6321238906133084220, guid: 8d53fa5ce023fe64784aaff2c04b719a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1276013928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807894166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b2f02c2c4f34768b5dd0ea036253aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &807894169 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6321238906133084221, guid: 8d53fa5ce023fe64784aaff2c04b719a,
