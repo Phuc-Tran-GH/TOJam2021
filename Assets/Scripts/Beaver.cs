@@ -93,7 +93,7 @@ public class Beaver : MonoBehaviour
 
 	private void Bite()
 	{
-		if (!dead && canBite && !biteCollider.activeSelf)
+		if (wasShot && !dead && canBite && !biteCollider.activeSelf)
 		{
 			// Enable bite collider
 			biteCollider.SetActive(true);
@@ -153,6 +153,7 @@ public class Beaver : MonoBehaviour
 	{
 		audio.PlayOneShot(deathSound);
 		SetDead(true);
+		animator.Play("BeaverImpact");
 	}
 
 	private void OnTreeBit()
@@ -184,6 +185,11 @@ public class Beaver : MonoBehaviour
 			numSlaps--;
 			animator.Play("BeaverJump");
 		}
+
+		if (dead)
+		{
+			animator.SetBool("deadGround", true);
+		}
 	}
 
 	private Coroutine resetGameCoroutine;
@@ -209,6 +215,7 @@ public class Beaver : MonoBehaviour
 		if (!isDead)
 		{
 			rigidbody2D.velocity = Vector3.zero;
+			animator.SetBool("deadGround", false);
 		}
 		
 		if (isDead && resetGameCoroutine == null)
