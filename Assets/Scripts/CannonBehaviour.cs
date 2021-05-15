@@ -48,7 +48,8 @@ public class CannonBehaviour : MonoBehaviour
             momentumY = ((momentumX * (cursec / 100) / 5)) + finalY;
             beaver.ShootOutOfCannon(new Vector2(momentumX, momentumY));
 
-
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
 
             shot = true;
         }

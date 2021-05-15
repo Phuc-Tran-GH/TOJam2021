@@ -10,6 +10,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public int[] gliderUpgradeCosts;
     public int[] slapUpgradeCosts;
 
+    public float[] cannonUpgradeMultipliers;
+    public float[] gliderUpgradeMultipliers;
+    public float[] slapUpgradeMultipliers; 
+
     private int cannonUpgradeNum = 0;
     private int gliderUpgradeNum = 0;
     private int slapUpgradeNum = 0;
@@ -21,9 +25,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     // Start is called before the first frame update
     void Start()
     {
-        CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
-        GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
-        SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
+
     }
 
     // Update is called once per frame
@@ -47,45 +49,63 @@ public class UpgradeManager : Singleton<UpgradeManager>
         return slapUpgradeCosts[slapUpgradeNum];
     }
 
+    public float GetCannonUpgradeMultiplier()
+    {
+        return cannonUpgradeMultipliers[cannonUpgradeNum];
+    }
+
+    public float GetGliderUpgradeMultiplier()
+    {
+        return gliderUpgradeMultipliers[gliderUpgradeNum];
+    }
+
+    public float GetSlapUpgradeMultiplier()
+    {
+        return slapUpgradeMultipliers[slapUpgradeNum];
+    }
+
     public void UpgradeCannon()
     {
-        if (cannonUpgradeNum < cannonUpgadeCosts.Length && GameManager.instance.Wood >= GetCannonUpgradeCost())
+        if (HasCannonUpgrade() && GameManager.instance.Wood >= GetCannonUpgradeCost())
         {
             GameManager.instance.SpendWood(GetCannonUpgradeCost());
             cannonUpgradeNum++;
             CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
+            UISounds.instance.PlayUpgradeSound();
         }
         else
         {
-            //DO NOTHING
+            UISounds.instance.PlayOKSound();
         }
     }
 
     public void UpgradeGlider()
     {
-        if (gliderUpgradeNum < gliderUpgradeCosts.Length && GameManager.instance.Wood >= GetGliderUpgradeCost())
+        if (HasGliderUpgrade() && GameManager.instance.Wood >= GetGliderUpgradeCost())
         {
             GameManager.instance.SpendWood(GetGliderUpgradeCost());
             gliderUpgradeNum++;
             GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
+            UISounds.instance.PlayUpgradeSound();
         }
         else
         {
-            //DO NOTHING
+            UISounds.instance.PlayOKSound();
         }
     }
 
     public void UpgradeSlap()
     {
-        if (slapUpgradeNum < slapUpgradeCosts.Length && GameManager.instance.Wood >= GetSlapUpgradeCost())
+        if (HasSlapUpgrade() && GameManager.instance.Wood >= GetSlapUpgradeCost())
         {
             GameManager.instance.SpendWood(GetSlapUpgradeCost());
             slapUpgradeNum++;
             SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
+            UISounds.instance.PlayUpgradeSound();
         }
         else
         {
-            //DO NOTHING
+            UISounds.instance.PlayOKSound();
         }
     }
 
@@ -107,12 +127,17 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public void OpenUpgradePanel()
     {
         upgradePanel.SetActive(true);
+
+        CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
+        GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
+        SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
     }
 
     public void CloseUpgradePanel()
     {
         upgradePanel.SetActive(false);
         GameManager.instance.ResetBeaver();
+        UISounds.instance.PlayOKSound();
     }
 
 }

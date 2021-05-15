@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treePool: {fileID: 3954948429242403032}
-  minTreeSpacing: 8
-  maxTreeSpacing: 16
+  minTreeSpacing: 12
+  maxTreeSpacing: 20
   cullDistance: 30
   levelStartLocation: {x: 9.2, y: -1.1, z: 0}
   biomeLength: 100

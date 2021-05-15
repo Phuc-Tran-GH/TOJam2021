@@ -9,12 +9,25 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gliderCostText;
     [SerializeField] private TextMeshProUGUI bounceCostText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         UpgradeManager.instance.CannonCostChangedEvent += CannonCostChangeHandler;
         UpgradeManager.instance.GliderCostChangedEvent += GliderCostChangeHandler;
         UpgradeManager.instance.SlapCostChangedEvent += BounceCostChangeHandler;
+    }
+
+    private void OnDestroy()
+    {
+        UpgradeManager.instance.CannonCostChangedEvent -= CannonCostChangeHandler;
+        UpgradeManager.instance.GliderCostChangedEvent -= GliderCostChangeHandler;
+        UpgradeManager.instance.SlapCostChangedEvent -= BounceCostChangeHandler;
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
 
     }
 
@@ -26,16 +39,37 @@ public class UpgradePanel : MonoBehaviour
 
     private void CannonCostChangeHandler(int cost)
     {
-        cannonCostText.text = cost.ToString();
+        if (UpgradeManager.instance.HasCannonUpgrade())
+        {
+            cannonCostText.text = UpgradeManager.instance.GetCannonUpgradeCost().ToString();
+        }
+        else
+        {
+            cannonCostText.text = "SOLD OUT";
+        }
     }
 
     private void GliderCostChangeHandler(int cost)
     {
-        gliderCostText.text = cost.ToString();
+        if (UpgradeManager.instance.HasGliderUpgrade())
+        {
+            gliderCostText.text = UpgradeManager.instance.GetGliderUpgradeCost().ToString();
+        }
+        else
+        {
+            gliderCostText.text = "SOLD OUT";
+        }
     }
 
     private void BounceCostChangeHandler(int cost)
     {
-        bounceCostText.text = cost.ToString();
+        if (UpgradeManager.instance.HasSlapUpgrade())
+        {
+            bounceCostText.text = UpgradeManager.instance.GetSlapUpgradeCost().ToString();
+        }
+        else
+        {
+            bounceCostText.text = "SOLD OUT";
+        }
     }
 }

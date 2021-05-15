@@ -6,20 +6,30 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private Rigidbody2D rigidbody2D;
 	[SerializeField] private GameObject biteCollider;
 	[SerializeField] private Animator animator;
+	[SerializeField] private AudioSource audio;
 
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
 
+	public float GroundSoundCooldown { get; private set; } = 1f;
+
+	public AudioClip launchSound;
+	public AudioClip biteSound;
+	public AudioClip deathSound;
+	public AudioClip groundSound;
+
 	private bool dead;
 	private bool wasShot;
 	private bool canBite = true;
+	private bool canPlayGroundSound = true;
 
 	public void ShootOutOfCannon(Vector2 direction)
 	{
+		audio.PlayOneShot(launchSound);
 		SetDead(false);
 		wasShot = true;
 		transform.rotation = Quaternion.identity;
-		rigidbody2D.AddForce(direction);
+		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
 	}
 	
@@ -91,11 +101,13 @@ public class Beaver : MonoBehaviour
 
 	private void OnTreeCollision()
 	{
+		audio.PlayOneShot(deathSound);
 		SetDead(true);
 	}
 
 	private void OnTreeBit()
 	{
+		audio.PlayOneShot(biteSound);
 		animator.Play("BeaverBite");
 	}
 
@@ -109,6 +121,8 @@ public class Beaver : MonoBehaviour
 				resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 			}
 		}
+
+		PlayGroundSound();
 	}
 
 	private Coroutine resetGameCoroutine;
@@ -130,4 +144,19 @@ public class Beaver : MonoBehaviour
 		dead = isDead;
 		animator.SetBool("dead", dead);
 	}
+
+	private void PlayGroundSound()
+    {
+		if (canPlayGroundSound)
+		{
+			audio.PlayOneShot(groundSound);
+			canPlayGroundSound = false;
+			Invoke(nameof(FinishPlayGroundSound), GroundSoundCooldown);
+		}
+	}
+
+	private void FinishPlayGroundSound()
+    {
+		canPlayGroundSound = true;
+    }
 }
