@@ -124,6 +124,12 @@ PrefabInstance:
       propertyPath: beaver
       value: 
       objectReference: {fileID: 1140747822}
+    - target: {fileID: 6880315194859810505, guid: 4aded79e34ad440bc9e6ae9354a943a9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c546cf6c53484658b4917c137ea0d3f,
+        type: 3}
     - target: {fileID: 6880315194859810507, guid: 4aded79e34ad440bc9e6ae9354a943a9,
         type: 3}
       propertyPath: m_Name
