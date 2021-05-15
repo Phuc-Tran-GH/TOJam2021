@@ -23,6 +23,17 @@ public class Beaver : MonoBehaviour
 	private bool canBite = true;
 	private bool canPlayGroundSound = true;
 
+	public void Activate()
+	{
+		gameObject.SetActive(true);
+	}
+
+
+	public void Deactivate()
+	{
+		gameObject.SetActive(false);
+	}
+
 	public void ShootOutOfCannon(Vector2 direction)
 	{
 		audio.PlayOneShot(launchSound);
