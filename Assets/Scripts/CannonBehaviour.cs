@@ -18,11 +18,8 @@ public class CannonBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         lr = GetComponent<LineRenderer>();
-//        lr.material = (Material) Resources.Load("Assets/Images/BlackDotMaterial.mat");
-        lr.material.SetTextureScale("_MainTex", new Vector2(0.5f, 0.5f));
-
-        lr.textureMode =  LineTextureMode.Tile;
         // Set some positions
         Vector3[] positions = new Vector3[2];
         positions[0] = transform.position;
@@ -30,6 +27,7 @@ public class CannonBehaviour : MonoBehaviour
         
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
+        */
         beaver = FindObjectOfType(typeof(Beaver)) as Beaver;
         beaver.Deactivate();
 
@@ -67,7 +65,7 @@ public class CannonBehaviour : MonoBehaviour
         );
 
         transform.right = direction;
-        RedrawLine(mousePosition.x, mousePosition.y);
+        //RedrawLine(mousePosition.x, mousePosition.y);
     }
 
     void RedrawLine(float x, float y)
