@@ -148,7 +148,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.3, y: 0}
-  m_ConnectedAnchor: {x: -0.22999993, y: -0.48000008}
+  m_ConnectedAnchor: {x: -0.22999996, y: -0.48}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f7ff0fc4814bd1843a4348689c0f1a1c, type: 3}
   tailRenderer: {fileID: 4563698710399599575}
   root: {fileID: 5612864924894451752}
+  ceilingY: 7.75
   launchSound: {fileID: 8300000, guid: 03f450392a7544193a540256fb6617b5, type: 3}
   biteSound: {fileID: 8300000, guid: 0463d535b4d5c424d87be0d1758bd7b8, type: 3}
   deathSound: {fileID: 8300000, guid: 567a51a7c11084492a371e31dedafe65, type: 3}

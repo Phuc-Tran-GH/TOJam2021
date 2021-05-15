@@ -12,6 +12,8 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private SpriteRenderer tailRenderer;
 	[SerializeField] private GameObject root;
 
+	[SerializeField] private float ceilingY;
+
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
 
@@ -71,9 +73,9 @@ public class Beaver : MonoBehaviour
 	{
 		HandleInput();
 
-		if (transform.position.y > 7.75f)
+		if (transform.position.y > ceilingY)
 		{
-			transform.position = new Vector3(transform.position.x, 7.75f, transform.position.z);
+			transform.position = new Vector3(transform.position.x, ceilingY, transform.position.z);
 		}
 
 		if (!dead && wasShot && UpgradeManager.instance.GetGliderUpgradeNum() > 0 && rigidbody2D.velocity.y < 0)
