@@ -128,9 +128,20 @@ public class UpgradeManager : Singleton<UpgradeManager>
     {
         upgradePanel.SetActive(true);
 
-        CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
-        GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
-        SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
+        if (HasCannonUpgrade())
+        {
+            CannonCostChangedEvent?.Invoke(GetCannonUpgradeCost());
+        }
+
+        if (HasGliderUpgrade())
+        {
+            GliderCostChangedEvent?.Invoke(GetGliderUpgradeCost());
+        }
+
+        if (HasSlapUpgrade())
+        {
+            SlapCostChangedEvent?.Invoke(GetSlapUpgradeCost());
+        }
     }
 
     public void CloseUpgradePanel()
