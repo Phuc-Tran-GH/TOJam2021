@@ -186,6 +186,7 @@ public class Beaver : MonoBehaviour
 		
 		if (isDead && resetGameCoroutine == null)
 		{
+			GameManager.instance.CheckFurthestDistance();
 			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 		}
 	}
