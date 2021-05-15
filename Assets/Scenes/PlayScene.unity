@@ -271,6 +271,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.22999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 560500397730978520, guid: 12b178d640fb49443956ddfc1cfcbe6f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.48000008
+      objectReference: {fileID: 0}
     - target: {fileID: 1783816442476915862, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -1559,6 +1569,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
+        type: 3}
+      propertyPath: minTreeSpacing
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
+        type: 3}
+      propertyPath: maxTreeSpacing
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
+        type: 3}
+      propertyPath: cullDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
+        type: 3}
+      propertyPath: levelStartLocation.x
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d371a73c3f37b44bea41e3d65aa683c6, type: 3}

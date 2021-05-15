@@ -20,6 +20,7 @@ public class Beaver : MonoBehaviour
 	public AudioClip biteSound;
 	public AudioClip deathSound;
 	public AudioClip groundSound;
+	public AudioClip jumpSound;
 
 	private bool dead;
 	private bool wasShot;
@@ -181,6 +182,12 @@ public class Beaver : MonoBehaviour
 	{
 		if (wasShot && !dead && canSlap && numSlaps > 0)
 		{
+			audio.PlayOneShot(jumpSound);
+
+			rigidbody2D.gravityScale = defaultGravity;
+			glider.ResetGlider();
+			glider.gameObject.SetActive(false);
+
 			rigidbody2D.AddForce(new Vector2(400, 800));
 			numSlaps--;
 			animator.Play("BeaverJump");
