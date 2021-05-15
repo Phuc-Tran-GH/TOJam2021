@@ -155,9 +155,12 @@ public class Beaver : MonoBehaviour
 
 	private void OnTreeCollision()
 	{
-		audio.PlayOneShot(deathSound);
-		SetDead(true);
-		animator.Play("BeaverImpact");
+		if (!dead)
+		{
+			audio.PlayOneShot(deathSound);
+			SetDead(true);
+			animator.Play("BeaverImpact");
+		}
 	}
 
 	private void OnTreeBit()
