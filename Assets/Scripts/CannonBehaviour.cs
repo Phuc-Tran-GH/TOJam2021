@@ -13,16 +13,13 @@ public class CannonBehaviour : MonoBehaviour
     private Vector2 direction;
     private float momentumX = 1200;
     private float momentumY = 200;
-
+    private PowerBar powerBar;
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         lr = GetComponent<LineRenderer>();
-//        lr.material = (Material) Resources.Load("Assets/Images/BlackDotMaterial.mat");
-        lr.material.SetTextureScale("_MainTex", new Vector2(0.5f, 0.5f));
-
-        lr.textureMode =  LineTextureMode.Tile;
         // Set some positions
         Vector3[] positions = new Vector3[2];
         positions[0] = transform.position;
@@ -30,7 +27,11 @@ public class CannonBehaviour : MonoBehaviour
         
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
-        
+        */
+        beaver = FindObjectOfType(typeof(Beaver)) as Beaver;
+        beaver.Deactivate();
+
+        powerBar = FindObjectOfType(typeof(PowerBar)) as PowerBar;
     }
 
     // Update is called once per frame
@@ -39,15 +40,13 @@ public class CannonBehaviour : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
     	FaceMouse();
 
-        healthbar healthbar = FindObjectOfType(typeof(healthbar)) as healthbar; 
-
         if (Input.GetMouseButtonDown(0) && !shot){
-            beaver = FindObjectOfType(typeof(Beaver)) as Beaver; 
             float finalY = Mathf.Abs(mousePosition.y) - 100;
-            int cursec = healthbar.cursec;
+            int cursec = powerBar.cursec;
             momentumY = ((momentumX * (cursec / 100) / 5)) + finalY;
+            beaver.Activate();
             beaver.ShootOutOfCannon(new Vector2(momentumX, momentumY));
-
+            powerBar.Deactivate();
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
 
@@ -66,7 +65,7 @@ public class CannonBehaviour : MonoBehaviour
         );
 
         transform.right = direction;
-        RedrawLine(mousePosition.x, mousePosition.y);
+        //RedrawLine(mousePosition.x, mousePosition.y);
     }
 
     void RedrawLine(float x, float y)

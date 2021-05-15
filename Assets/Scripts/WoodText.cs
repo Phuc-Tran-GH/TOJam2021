@@ -27,6 +27,6 @@ public class WoodText : MonoBehaviour
 
 	private void UpdateText()
 	{
-		woodText.text = $"{GameManager.instance.Wood} Wood";
+		woodText.text = $"{GameManager.instance.Wood}";
 	}
 }

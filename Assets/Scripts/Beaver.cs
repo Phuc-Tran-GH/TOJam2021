@@ -110,13 +110,18 @@ public class Beaver : MonoBehaviour
 		{
 			OnTreeCollision();
 		}
+		
+		if (other.gameObject.CompareTag("Ground"))
+		{
+			OnGroundCollision();
+		}
 	}
 
 	private void OnCollisionStay2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Ground"))
 		{
-			OnGroundCollision();
+			OnGroundStay();
 		}
 	}
 
@@ -140,7 +145,7 @@ public class Beaver : MonoBehaviour
 		animator.Play("BeaverBite");
 	}
 
-	private void OnGroundCollision()
+	private void OnGroundStay()
 	{
 		// After being shot from a cannon, restart the game once we're touching the ground with no velocity
 		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 0.1f)
@@ -154,12 +159,24 @@ public class Beaver : MonoBehaviour
 		PlayGroundSound();
 	}
 
+	private int numSlaps = 0;
+	private void OnGroundCollision()
+	{
+		if (wasShot && !dead && canSlap && numSlaps > 0)
+		{
+			rigidbody2D.AddForce(new Vector2(400, 800));
+			numSlaps--;
+		}
+	}
+
 	private Coroutine resetGameCoroutine;
 	private IEnumerator ResetGameCoroutine()
 	{
 		yield return new WaitForSeconds(1); // wait a bit before restarting
 
 		wasShot = false;
+		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel();
+		canSlap = false;
 
 		//open upgrade panel
 		UpgradeManager.instance.OpenUpgradePanel();
@@ -172,6 +189,16 @@ public class Beaver : MonoBehaviour
 	{
 		dead = isDead;
 		animator.SetBool("dead", dead);
+
+		if (!isDead)
+		{
+			rigidbody2D.velocity = Vector3.zero;
+		}
+		
+		if (isDead && resetGameCoroutine == null)
+		{
+			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
+		}
 	}
 
 	private void PlayGroundSound()
@@ -188,4 +215,9 @@ public class Beaver : MonoBehaviour
     {
 		canPlayGroundSound = true;
     }
+
+	private void AllowSlap()
+	{
+		canSlap = true;
+	}
 }
