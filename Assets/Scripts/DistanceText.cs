@@ -14,6 +14,7 @@ public class DistanceText : MonoBehaviour
 
 	private void Update()
 	{
-		distanceText.text = $"{beaverTransform.position.x.ToString("F1")}M";
+		var dist = Mathf.Max(0, beaverTransform.position.x);
+		distanceText.text = $"{dist.ToString("F1")}M";
 	}
 }

@@ -35,7 +35,6 @@ public class GameManager : Singleton<GameManager>
     {
 		Wood -= wood;
 		WoodChangedEvent?.Invoke(Wood);
-		Debug.Log(RunWood);
     }
 
 	public void ResetBeaver()
@@ -57,6 +56,5 @@ public class GameManager : Singleton<GameManager>
 		if (beaverX > FurthestDistance) {
 			FurthestDistance = beaverX;
 		}
-		Debug.Log("Furthest distance is: " + FurthestDistance);
 	}
 }
