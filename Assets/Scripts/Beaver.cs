@@ -7,6 +7,7 @@ public class Beaver : MonoBehaviour
 	[SerializeField] private GameObject biteCollider;
 	[SerializeField] private Animator animator;
 	[SerializeField] private AudioSource audio;
+	[SerializeField] private Glider glider;
 
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
@@ -24,26 +25,40 @@ public class Beaver : MonoBehaviour
 	private bool canPlayGroundSound = true;
 	private bool canSlap;
 
-	public void Activate()
-	{
-		gameObject.SetActive(true);
-	}
+	private float defaultGravity;
 
+    private void Start()
+    {
+		defaultGravity = rigidbody2D.gravityScale;
+    }
+
+	public void Activate()
+    {
+		gameObject.SetActive(true);
+    }
 
 	public void Deactivate()
-	{
+    {
 		gameObject.SetActive(false);
-	}
+    }
 
-	public void ShootOutOfCannon(Vector2 direction)
+    public void ShootOutOfCannon(Vector2 direction)
 	{
 		audio.PlayOneShot(launchSound);
 		SetDead(false);
 		wasShot = true;
 		transform.rotation = Quaternion.identity;
+		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
 		Invoke(nameof(AllowSlap), 0.1f);
+
+		glider.ResetGlider();
+		if (UpgradeManager.instance.GetGliderUpgradeNum() > 0)
+        {
+			glider.SetGlider(UpgradeManager.instance.GetGliderUpgradeNum() - 1);
+        }
+		glider.gameObject.SetActive(false);
 	}
 	
 	private void Update()
@@ -54,6 +69,14 @@ public class Beaver : MonoBehaviour
 		{
 			transform.position = new Vector3(transform.position.x, 7.75f, transform.position.z);
 		}
+
+		if (!dead && wasShot && UpgradeManager.instance.GetGliderUpgradeNum() > 0 && rigidbody2D.velocity.y < 0)
+        {
+			glider.gameObject.SetActive(true);
+			glider.DeployGlider();
+
+			rigidbody2D.gravityScale = defaultGravity * UpgradeManager.instance.GetGliderUpgradeMultiplier();
+        }
 	}
 
 	private void HandleInput()

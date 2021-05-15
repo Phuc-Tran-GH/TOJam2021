@@ -151,4 +151,19 @@ public class UpgradeManager : Singleton<UpgradeManager>
         UISounds.instance.PlayOKSound();
     }
 
+    public int GetCannonUpgradeNum()
+    {
+        return cannonUpgradeNum;
+    }
+
+    public int GetGliderUpgradeNum()
+    {
+        return gliderUpgradeNum;
+    }
+
+    public int GetSlapUpgradeNum()
+    {
+        return slapUpgradeNum;
+    }
+
 }
