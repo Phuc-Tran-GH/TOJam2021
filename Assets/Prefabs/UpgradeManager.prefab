@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePanel: {fileID: 0}
-  cannonUpgadeCosts: 050000000a0000001900000032000000
-  gliderUpgradeCosts: 050000000a0000001900000032000000
-  slapUpgradeCosts: 050000000a0000001900000032000000
+  cannonUpgadeCosts: 02000000050000000f0000002d000000
+  gliderUpgradeCosts: 02000000050000000f0000002d000000
+  slapUpgradeCosts: 02000000050000000f0000002d000000
   cannonUpgradeMultipliers:
   - 1
   - 1.1

@@ -1613,6 +1613,26 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2809127390189821824, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809127390189821824, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809127390189821824, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809127390189821824, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2809127390189821826, guid: 3bd665d4d71d64ea3ab4585a490990d8,
         type: 3}
       propertyPath: m_LocalPosition.x
