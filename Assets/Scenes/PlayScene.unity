@@ -1664,26 +1664,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
         type: 3}
-      propertyPath: minTreeSpacing
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
-        type: 3}
-      propertyPath: maxTreeSpacing
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
-        type: 3}
-      propertyPath: cullDistance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
-        type: 3}
-      propertyPath: levelStartLocation.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954948429242403035, guid: d371a73c3f37b44bea41e3d65aa683c6,
-        type: 3}
       propertyPath: beaver
       value: 
       objectReference: {fileID: 63164493}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3954948429242403033}
   - component: {fileID: 3954948429242403035}
   - component: {fileID: 3954948429242403032}
+  - component: {fileID: 8396325240326052647}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -45,10 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treePool: {fileID: 3954948429242403032}
-  minTreeSpacing: 12
-  maxTreeSpacing: 20
-  cullDistance: 30
-  levelStartLocation: {x: 9.2, y: 3.82, z: 0}
+  powerupPool: {fileID: 8396325240326052647}
+  minTreeSpacing: 20
+  maxTreeSpacing: 40
+  cullDistance: 50
+  levelStartLocation: {x: 3, y: 3.82, z: 0}
+  powerUpStartLocation: {x: 9.2, y: 0, z: 0}
   biomeLength: 100
   beaver: {fileID: 0}
 --- !u!114 &3954948429242403032
@@ -67,3 +70,17 @@ MonoBehaviour:
   - {fileID: 818719241392847323, guid: b976a73162ee5ba4d983bfaa62aeb4db, type: 3}
   - {fileID: 7153512622805537060, guid: ee1b03edc83814cba8cbcb755b8fe5eb, type: 3}
   - {fileID: 780247064927876475, guid: a63fa006ab5f14ea29dafd9242f5964d, type: 3}
+--- !u!114 &8396325240326052647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954948429242403034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3376ec0c0e4ba40809051c6e0649b4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefabs:
+  - {fileID: 7164418780840045104, guid: af396c3a0f0c149e1a47624c0251527d, type: 3}

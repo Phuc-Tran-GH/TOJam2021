@@ -24,6 +24,7 @@ public class Beaver : MonoBehaviour
 	public AudioClip deathSound;
 	public AudioClip groundSound;
 	public AudioClip jumpSound;
+	public AudioClip powerUpCollect;
 
 	private bool dead;
 	private bool wasShot;
@@ -31,6 +32,7 @@ public class Beaver : MonoBehaviour
 	private bool canDash = true;
 	private bool canPlayGroundSound = true;
 	private bool canSlap;
+	private bool bonusSlap = false;
 
 	private float defaultGravity = 0.9f;
 	private float dashForce = 2000f;
@@ -215,7 +217,15 @@ public class Beaver : MonoBehaviour
 			rigidbody2D.AddForce(new Vector2(1000, 800) * (UpgradeManager.instance.GetSlapUpgradeMultiplier() * Mathf.Pow(0.9f, numSlaps)));
 
 			numSlaps++;
-			canSlap = false;
+			if (bonusSlap)
+            {
+				canDash = true;
+				bonusSlap = false;
+            }
+			else
+			{
+				canSlap = false;
+			}
 			animator.Play("BeaverJump");
 		}
 
@@ -280,11 +290,27 @@ public class Beaver : MonoBehaviour
 	{
 		canSlap = true;
 		canDash = true;
+		bonusSlap = false;
 	}
 
 	public void SetTail(int tail)
 	{
 		int index = Mathf.Clamp(tail, 0, tailSprites.Length - 1);
 		tailRenderer.sprite = tailSprites[index];
+	}
+
+	public void RefreshSlaps()
+    {
+		numSlaps = 0;
+
+		audio.PlayOneShot(powerUpCollect);
+
+		if (!canSlap)
+        {
+			AllowSlap();
+        }
+
+		bonusSlap = true;
+
 	}
 }

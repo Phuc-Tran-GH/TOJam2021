@@ -59,4 +59,9 @@ public class GameManager : Singleton<GameManager>
 			FurthestDistance = beaverX;
 		}
 	}
+
+	public void PowerUpCollected()
+    {
+		beaver.RefreshSlaps();
+    }
 }

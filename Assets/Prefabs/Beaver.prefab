@@ -442,6 +442,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 567a51a7c11084492a371e31dedafe65, type: 3}
   groundSound: {fileID: 8300000, guid: 41ebc82520fa24d0c8c20174b497d7df, type: 3}
   jumpSound: {fileID: 8300000, guid: 24b31061de27b4157b8c463cf4b9c2e2, type: 3}
+  powerUpCollect: {fileID: 8300000, guid: 325751127a81246e688c17323a2eba1a, type: 3}
 --- !u!50 &2520803484486052679
 Rigidbody2D:
   serializedVersion: 4
