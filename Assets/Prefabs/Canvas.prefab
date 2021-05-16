@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 3606033280965045879}
   powerBarMaxTime: 1
+  otherBar: {fileID: 3606033280274522836}
 --- !u!1 &7718387341226394228
 GameObject:
   m_ObjectHideFlags: 0
