@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] private LevelGenerator levelGenerator;
 	[SerializeField] private Transform startPosition;
 	[SerializeField] private FollowCamera camera;
+	
+	public bool DidStart { get; set; }
 
 	public int Wood { get; private set; }
 	public int RunWood { get; private set; }
@@ -18,10 +20,6 @@ public class GameManager : Singleton<GameManager>
 
 	public event Action<int> WoodChangedEvent;
 	public event Action<int> RunWoodChangedEvent;
-
-	private void Start(){
-		powerBar = FindObjectOfType(typeof(PowerBar)) as PowerBar;
-	}
 
 	public void AddWood(int wood)
 	{

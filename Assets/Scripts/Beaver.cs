@@ -191,15 +191,14 @@ public class Beaver : MonoBehaviour
 	private void OnGroundStay()
 	{
 		// After being shot from a cannon, restart the game once we're touching the ground with no velocity
-		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 1f)
+		bool isStopped = rigidbody2D.velocity.SqrMagnitude() < 1f;
+		if (wasShot && isStopped)
 		{
 			if (resetGameCoroutine == null)
 			{
 				resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 			}
 		}
-
-		PlayGroundSound();
 	}
 
 	private int numSlaps = 0;
@@ -230,6 +229,8 @@ public class Beaver : MonoBehaviour
 		{
 			animator.SetBool("deadGround", true);
 		}
+		
+		PlayGroundSound();
 	}
 
 	private Coroutine resetGameCoroutine;
