@@ -9,13 +9,12 @@ public class PowerBar : MonoBehaviour
     private bool goingUp;
     private bool shot = false;
     private float momentumX = 1000;
-    private GameObject otherBar;
+    public GameObject otherBar;
 
     void Start()
     {
         powerBarTime = 0;
         goingUp = true;
-        otherBar = GameObject.Find("/Canvas/HealthBar");
     }
 
     // Update is called once per frame

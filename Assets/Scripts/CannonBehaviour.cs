@@ -45,7 +45,7 @@ public class CannonBehaviour : MonoBehaviour
         
         FaceMouse();
 
-        if (Input.GetMouseButtonDown(0) && !shot) {
+        if (Input.GetMouseButtonDown(0) && !shot && GameManager.instance.DidStart) {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (mousePosition.x < transform.position.x + 4.25f)
             {
