@@ -9,8 +9,10 @@ public class GliderUpgradeIconScript : MonoBehaviour
 {
     public Sprite[] spriteArray;
     public Image image;
-    public void UpgradeIcon(int upgradeNum){
-        Sprite newSprite = spriteArray[upgradeNum];
+    public void UpgradeIcon(int upgradeNum)
+    {
+        int index = Mathf.Min(upgradeNum, spriteArray.Length - 1);
+        Sprite newSprite = spriteArray[index];
         image.sprite = newSprite;
     }
 
