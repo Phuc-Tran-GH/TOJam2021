@@ -16,6 +16,8 @@ public class TitleCard : MonoBehaviour
 	[SerializeField] private FollowCamera followCamera;
 	[SerializeField] private CanvasGroup canvasGroup;
 
+	[SerializeField] private GameObject tutorialPanel;
+
 	[SerializeField] private AudioSource bounceSound;
 	[SerializeField] private AudioSource startSound;
 
@@ -58,6 +60,7 @@ public class TitleCard : MonoBehaviour
 
 	private void ButtonHandler()
 	{
+		button.enabled = false;
 		startSound.Play();
 		StartCoroutine(StartGame());
 	}
@@ -66,7 +69,7 @@ public class TitleCard : MonoBehaviour
 	{
 		// bounce title
 		LeanTween.alphaCanvas(canvasGroup, 0, 0.3f).setEaseInOutSine();
-		
+
 		yield return new WaitForSeconds(0.3f);
 
 		// enable ui
@@ -76,8 +79,10 @@ public class TitleCard : MonoBehaviour
 		
 		followCamera.enabled = true;
 		GameManager.instance.DidStart = true;
-		
-		yield return new WaitForSeconds(1f);
+
+		// wait for sound to finish then disable
+		yield return new WaitForSeconds(0.2f);
+		gameObject.SetActive(false);
 		
 	}
 }
