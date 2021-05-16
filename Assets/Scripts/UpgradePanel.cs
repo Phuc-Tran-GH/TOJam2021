@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UpgradePanel : MonoBehaviour
@@ -8,6 +9,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cannonCostText;
     [SerializeField] private TextMeshProUGUI gliderCostText;
     [SerializeField] private TextMeshProUGUI bounceCostText;
+    public Image[] woodIcons;
 
     private void Awake()
     {
@@ -46,6 +48,8 @@ public class UpgradePanel : MonoBehaviour
         else
         {
             cannonCostText.text = "SOLD OUT";
+            cannonCostText.fontSize = 40;
+            woodIcons[0].gameObject.SetActive(false);
         }
     }
 
@@ -58,6 +62,8 @@ public class UpgradePanel : MonoBehaviour
         else
         {
             gliderCostText.text = "SOLD OUT";
+            gliderCostText.fontSize = 40;
+            woodIcons[1].gameObject.SetActive(false);
         }
     }
 
@@ -70,6 +76,8 @@ public class UpgradePanel : MonoBehaviour
         else
         {
             bounceCostText.text = "SOLD OUT";
+            bounceCostText.fontSize = 40;
+            woodIcons[2].gameObject.SetActive(false);
         }
     }
 }

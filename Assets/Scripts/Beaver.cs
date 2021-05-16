@@ -224,6 +224,7 @@ public class Beaver : MonoBehaviour
 		{
 			if (resetGameCoroutine == null)
 			{
+				GameManager.instance.CheckFurthestDistance();
 				resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 			}
 		}
@@ -297,7 +298,7 @@ public class Beaver : MonoBehaviour
 		}
 		
 		if (wasShot && isDead && resetGameCoroutine == null)
-		{
+		{	
 			GameManager.instance.CheckFurthestDistance();
 			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 		}
