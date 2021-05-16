@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
 
 	public void AddWood(int wood)
 	{
-		Wood += wood;
+		Wood += wood + 100;
 		RunWood += wood;
 		WoodChangedEvent?.Invoke(Wood);
 		RunWoodChangedEvent?.Invoke(Wood);
