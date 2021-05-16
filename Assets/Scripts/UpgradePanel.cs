@@ -49,7 +49,10 @@ public class UpgradePanel : MonoBehaviour
         {
             cannonCostText.text = "SOLD OUT";
             cannonCostText.fontSize = 40;
-            woodIcons[0].gameObject.SetActive(false);
+            if (woodIcons.Length > 0)
+            {
+                woodIcons[0].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -63,7 +66,10 @@ public class UpgradePanel : MonoBehaviour
         {
             gliderCostText.text = "SOLD OUT";
             gliderCostText.fontSize = 40;
-            woodIcons[1].gameObject.SetActive(false);
+            if (woodIcons.Length > 1)
+            {
+                woodIcons[1].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -77,7 +83,11 @@ public class UpgradePanel : MonoBehaviour
         {
             bounceCostText.text = "SOLD OUT";
             bounceCostText.fontSize = 40;
-            woodIcons[2].gameObject.SetActive(false);
+
+            if (woodIcons.Length > 2)
+            {
+                woodIcons[2].gameObject.SetActive(false);
+            }
         }
     }
 }
