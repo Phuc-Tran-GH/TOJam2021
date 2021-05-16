@@ -52,7 +52,7 @@ MonoBehaviour:
   cullDistance: 50
   levelStartLocation: {x: 3, y: 9.5, z: 0}
   powerUpStartLocation: {x: 9.2, y: 0, z: 0}
-  biomeLength: 100
+  biomeLength: 400
   beaver: {fileID: 0}
 --- !u!114 &3954948429242403032
 MonoBehaviour:
@@ -68,8 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefabs:
   - {fileID: 818719241392847323, guid: b976a73162ee5ba4d983bfaa62aeb4db, type: 3}
-  - {fileID: 7153512622805537060, guid: ee1b03edc83814cba8cbcb755b8fe5eb, type: 3}
-  - {fileID: 780247064927876475, guid: a63fa006ab5f14ea29dafd9242f5964d, type: 3}
+  - {fileID: 4624260169097225653, guid: 65b7ba4869bff422d81bf5c6a33ebfda, type: 3}
 --- !u!114 &8396325240326052647
 MonoBehaviour:
   m_ObjectHideFlags: 0
