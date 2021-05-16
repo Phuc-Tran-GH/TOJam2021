@@ -309,8 +309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.4, y: 5.3573}
-  m_SizeDelta: {x: -41.512665, y: -10.71463}
+  m_AnchoredPosition: {x: 22.4, y: 5.3573}
+  m_SizeDelta: {x: -44.678223, y: -10.71463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5527873578853440434
 CanvasRenderer:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 2.658166, y: 0, z: -3.1424608, w: 20.54102}
+  m_margin: {x: -1.6148038, y: 0, z: 10.797289, w: 20.54102}
   m_textInfo:
     textComponent: {fileID: 4943583251837861278}
     characterCount: 1
@@ -478,8 +478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208.6, y: 7.2039}
-  m_SizeDelta: {x: 182.81165, y: 122.111015}
+  m_AnchoredPosition: {x: -204.1, y: 9.2}
+  m_SizeDelta: {x: 179.61072, y: 119.97288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2362895758099074097
 CanvasRenderer:
