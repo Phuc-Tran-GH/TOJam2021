@@ -24,7 +24,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     public CannonUpgradeIconScript cannonUpgradeIcon;
     public GliderUpgradeIconScript gliderUpgradeIcon;
-    public BounceUpgradeIconScript bounceUpgradeIcon;
+    public CannonUpgradeIconScript bounceUpgradeIcon;
 
     public LevelText levelText;
 

@@ -10,6 +10,9 @@ public class BounceUpgradeIconScript : MonoBehaviour
     public Sprite[] spriteArray;
     public Image image;
     public void UpgradeIcon(int upgradeNum){
+    	Debug.Log("Sprite num: " + upgradeNum);
+    	Debug.Log("Sprite array num: " + spriteArray.Length);
+
         Sprite newSprite = spriteArray[upgradeNum];
         image.sprite = newSprite;
     }
