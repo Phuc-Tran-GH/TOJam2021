@@ -96,14 +96,14 @@ public class Beaver : MonoBehaviour
 			transform.position = new Vector3(transform.position.x, ceilingY, transform.position.z);
 		}
 
-		if (rigidbody2D.velocity.y < 0)
+		/*if (rigidbody2D.velocity.y < 0)
         {
 			//stop trails
 			launchTrail.emitting = false;
 			launchTrailGradient.emitting = false;
 			bounceTrail.emitting = false;
 			bounceTrailGradient.emitting = false;
-		}
+		}*/
 
 		if (!dead && wasShot && UpgradeManager.instance.GetGliderUpgradeNum() > 0 && rigidbody2D.velocity.y < 0)
         {
@@ -152,6 +152,11 @@ public class Beaver : MonoBehaviour
 			rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 			rigidbody2D.AddTorque(-1);
 			canDash = false;
+
+			launchTrail.emitting = false;
+			launchTrailGradient.emitting = false;
+			bounceTrail.emitting = false;
+			bounceTrailGradient.emitting = false;
 
 			dashTrail.emitting = true;
 			dashTrailFront.emitting = true;
