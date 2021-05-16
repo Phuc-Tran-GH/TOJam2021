@@ -290,8 +290,8 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
 --- !u!1 &2518206933714104396
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +524,8 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
 --- !u!1 &4674328290348041735
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1594089471992643937
 Transform:
   m_ObjectHideFlags: 0
@@ -742,8 +742,8 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
 --- !u!1 &6886434414915451064
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +837,12 @@ MonoBehaviour:
   tailRenderer: {fileID: 4563698710399599575}
   root: {fileID: 8248826597669313137}
   ceilingY: 15
+  launchTrail: {fileID: 945159445919864455}
+  launchTrailGradient: {fileID: 7222693084112179293}
+  bounceTrail: {fileID: 9156615129035429257}
+  bounceTrailGradient: {fileID: 5683998831605496534}
+  dashTrail: {fileID: 1120586297562951132}
+  dashTrailFront: {fileID: 3289996111323275370}
   launchSound: {fileID: 8300000, guid: 03f450392a7544193a540256fb6617b5, type: 3}
   biteSound: {fileID: 8300000, guid: 0463d535b4d5c424d87be0d1758bd7b8, type: 3}
   deathSound: {fileID: 8300000, guid: 567a51a7c11084492a371e31dedafe65, type: 3}
@@ -1110,8 +1116,8 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
 --- !u!1 &8620474473566634954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4059286695525816532
 Transform:
   m_ObjectHideFlags: 0
@@ -1246,8 +1252,8 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
 --- !u!1 &8938039271181522917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,5 +1388,5 @@ TrailRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.01
-  m_Autodestruct: 1
-  m_Emitting: 1
+  m_Autodestruct: 0
+  m_Emitting: 0
