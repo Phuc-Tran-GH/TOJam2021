@@ -60,8 +60,12 @@ MonoBehaviour:
   - 0.125
   - 0.05
   slapUpgradeMultipliers:
-  - 0
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
   - 1
-  - 2
-  - 3
-  - 4
+  cannonUpgradeIcon: {fileID: 0}
+  gliderUpgradeIcon: {fileID: 0}
+  bounceUpgradeIcon: {fileID: 0}
+  levelText: {fileID: 0}

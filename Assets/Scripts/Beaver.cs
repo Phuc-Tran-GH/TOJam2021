@@ -24,14 +24,18 @@ public class Beaver : MonoBehaviour
 	public AudioClip deathSound;
 	public AudioClip groundSound;
 	public AudioClip jumpSound;
+	public AudioClip powerUpCollect;
 
 	private bool dead;
 	private bool wasShot;
 	private bool canBite = true;
+	private bool canDash = true;
 	private bool canPlayGroundSound = true;
 	private bool canSlap;
+	private bool bonusSlap = false;
 
 	private float defaultGravity = 0.9f;
+	private float dashForce = 2000f;
 
     private void Start()
     {
@@ -58,7 +62,7 @@ public class Beaver : MonoBehaviour
 		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
-		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel();
+		numSlaps = 0;
 		Invoke(nameof(AllowSlap), 0.1f);
 
 		glider.ResetGlider();
@@ -93,6 +97,10 @@ public class Beaver : MonoBehaviour
 		{
 			Bite();
 		}
+		else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftControl))
+        {
+			DownDash();
+        }
 	}
 
 	private void Bite()
@@ -108,6 +116,19 @@ public class Beaver : MonoBehaviour
 			canBite = false;
 
 			Invoke(nameof(FinishBite), BiteDuration);
+		}
+	}
+
+	private void DownDash()
+    {
+		if (wasShot && !dead && canDash)
+		{
+			Vector2 direction = new Vector2(0, -dashForce); 
+			transform.rotation = Quaternion.identity;
+			rigidbody2D.gravityScale = defaultGravity;
+			rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
+			rigidbody2D.AddTorque(-1);
+			canDash = false;
 		}
 	}
 
@@ -172,21 +193,20 @@ public class Beaver : MonoBehaviour
 	private void OnGroundStay()
 	{
 		// After being shot from a cannon, restart the game once we're touching the ground with no velocity
-		if (wasShot && rigidbody2D.velocity.SqrMagnitude() < 1f)
+		bool isStopped = rigidbody2D.velocity.SqrMagnitude() < 1f;
+		if (wasShot && isStopped)
 		{
 			if (resetGameCoroutine == null)
 			{
 				resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 			}
 		}
-
-		PlayGroundSound();
 	}
 
 	private int numSlaps = 0;
 	private void OnGroundCollision()
 	{
-		if (wasShot && !dead && canSlap && numSlaps > 0)
+		if (wasShot && !dead && !canDash && canSlap)
 		{
 			audio.PlayOneShot(jumpSound);
 
@@ -194,8 +214,18 @@ public class Beaver : MonoBehaviour
 			glider.ResetGlider();
 			glider.gameObject.SetActive(false);
 
-			rigidbody2D.AddForce(new Vector2(400, 800));
-			numSlaps--;
+			rigidbody2D.AddForce(new Vector2(1000, 800) * (UpgradeManager.instance.GetSlapUpgradeMultiplier() * Mathf.Pow(0.9f, numSlaps)));
+
+			numSlaps++;
+			if (bonusSlap)
+            {
+				canDash = true;
+				bonusSlap = false;
+            }
+			else
+			{
+				canSlap = false;
+			}
 			animator.Play("BeaverJump");
 		}
 
@@ -203,6 +233,8 @@ public class Beaver : MonoBehaviour
 		{
 			animator.SetBool("deadGround", true);
 		}
+		
+		PlayGroundSound();
 	}
 
 	private Coroutine resetGameCoroutine;
@@ -212,6 +244,7 @@ public class Beaver : MonoBehaviour
 
 		wasShot = false;
 		canSlap = false;
+		canDash = false;
 
 		//open upgrade panel
 		UpgradeManager.instance.OpenUpgradePanel();
@@ -253,14 +286,31 @@ public class Beaver : MonoBehaviour
 		canPlayGroundSound = true;
     }
 
-	private void AllowSlap()
+	public void AllowSlap()
 	{
 		canSlap = true;
+		canDash = true;
+		bonusSlap = false;
 	}
 
 	public void SetTail(int tail)
 	{
 		int index = Mathf.Clamp(tail, 0, tailSprites.Length - 1);
 		tailRenderer.sprite = tailSprites[index];
+	}
+
+	public void RefreshSlaps()
+    {
+		numSlaps = 0;
+
+		audio.PlayOneShot(powerUpCollect);
+
+		if (!canSlap)
+        {
+			AllowSlap();
+        }
+
+		bonusSlap = true;
+
 	}
 }

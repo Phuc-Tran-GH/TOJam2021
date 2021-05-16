@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4674328290348041735}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.053999998, y: -0.242, z: 0}
+  m_LocalPosition: {x: 0.65, y: -0.242, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6970819334988654473}
@@ -311,7 +311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.2}
+  m_Size: {x: 0.5, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &5612864924894451752
 GameObject:
@@ -435,13 +435,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96e0f84403a31524ca7c74a885a046c5, type: 3}
   - {fileID: 21300000, guid: f7ff0fc4814bd1843a4348689c0f1a1c, type: 3}
   tailRenderer: {fileID: 4563698710399599575}
-  root: {fileID: 5612864924894451752}
-  ceilingY: 7.75
+  root: {fileID: 8248826597669313137}
+  ceilingY: 15
   launchSound: {fileID: 8300000, guid: 03f450392a7544193a540256fb6617b5, type: 3}
   biteSound: {fileID: 8300000, guid: 0463d535b4d5c424d87be0d1758bd7b8, type: 3}
   deathSound: {fileID: 8300000, guid: 567a51a7c11084492a371e31dedafe65, type: 3}
   groundSound: {fileID: 8300000, guid: 41ebc82520fa24d0c8c20174b497d7df, type: 3}
   jumpSound: {fileID: 8300000, guid: 24b31061de27b4157b8c463cf4b9c2e2, type: 3}
+  powerUpCollect: {fileID: 8300000, guid: 325751127a81246e688c17323a2eba1a, type: 3}
 --- !u!50 &2520803484486052679
 Rigidbody2D:
   serializedVersion: 4

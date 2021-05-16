@@ -26,10 +26,18 @@ public class TreeTrunk : MonoBehaviour
 		// Show bite marks
 		biteMarks.transform.position = new Vector3(transform.position.x, bitePosition.y, 0);
 		biteMarks.SetActive(true);
-		
+
+		//bonus points
+		int finalPoints = points;
+		if(transform.position.x - bitePosition.x > 1.75f)
+        {
+			//perfect timing
+			finalPoints *= 3;
+        }
+
 		// Show points text
 		pointsText.transform.position = new Vector3(pointsText.transform.position.x, bitePosition.y, 0);
-		pointsText.text = $"+{points}";
+		pointsText.text = $"+{finalPoints}";
 		pointsText.transform.localScale = Vector3.zero;
 		
 		// Scale up then down
@@ -38,7 +46,7 @@ public class TreeTrunk : MonoBehaviour
 		seq.append(LeanTween.scale(pointsText.gameObject, Vector3.zero, 0.6f));
 		
 		// Add wood
-		GameManager.instance.AddWood(1);
+		GameManager.instance.AddWood(finalPoints);
 	}
 	
 	public void UnBitten()

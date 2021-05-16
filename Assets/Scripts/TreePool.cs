@@ -31,6 +31,7 @@ public class TreePool : MonoBehaviour
         if (treePools[index].Count == 0)
         {
             tree = Instantiate(treePrefabs[index], new Vector3(0, 0, 1), Quaternion.identity);
+            tree.SetPoolNumber(index);
         }
         else
         {
@@ -42,11 +43,11 @@ public class TreePool : MonoBehaviour
         return tree;
     }
 
-    public void ReplaceTree(int index, Tree tree)
+    public void ReplaceTree(Tree tree)
     {
         tree.gameObject.SetActive(false);
         tree.UnBitten();
-        treePools[index].Add(tree);
+        treePools[tree.GetPoolNumber()].Add(tree);
     }
 
     public int GetNumTreeTypes()
