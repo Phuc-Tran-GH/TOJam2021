@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 8248826597669313137, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8301285440767462444, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
@@ -2033,25 +2033,5 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1515729751}
-    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
-        type: 3}
-      propertyPath: slapUpgradeCosts.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
-        type: 3}
-      propertyPath: slapUpgradeCosts.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
-        type: 3}
-      propertyPath: slapUpgradeCosts.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
-        type: 3}
-      propertyPath: slapUpgradeCosts.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92e15db92863b9409135b868233db42, type: 3}

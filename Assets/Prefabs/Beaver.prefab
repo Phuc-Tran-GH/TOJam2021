@@ -435,7 +435,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96e0f84403a31524ca7c74a885a046c5, type: 3}
   - {fileID: 21300000, guid: f7ff0fc4814bd1843a4348689c0f1a1c, type: 3}
   tailRenderer: {fileID: 4563698710399599575}
-  root: {fileID: 5612864924894451752}
+  root: {fileID: 8248826597669313137}
   ceilingY: 7.75
   launchSound: {fileID: 8300000, guid: 03f450392a7544193a540256fb6617b5, type: 3}
   biteSound: {fileID: 8300000, guid: 0463d535b4d5c424d87be0d1758bd7b8, type: 3}
