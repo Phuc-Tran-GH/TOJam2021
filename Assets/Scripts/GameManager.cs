@@ -21,6 +21,8 @@ public class GameManager : Singleton<GameManager>
 	public event Action<int> WoodChangedEvent;
 	public event Action<int> RunWoodChangedEvent;
 
+	private bool recordedLoaded = false;
+
 	public void AddWood(int wood)
 	{
 		Wood += wood;
@@ -54,9 +56,15 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	public void CheckFurthestDistance(){
+		if ( !recordedLoaded )
+        {
+			LoadRecord();
+        }
+
 		float beaverX = beaver.transform.position.x;
 		if (beaverX > FurthestDistance) {
 			FurthestDistance = beaverX;
+			SaveRecord();
 		}
 	}
 
@@ -64,4 +72,20 @@ public class GameManager : Singleton<GameManager>
     {
 		beaver.RefreshSlaps();
     }
+
+	private void SaveRecord()
+	{
+		PlayerPrefs.SetFloat("FurthestDistance", FurthestDistance);
+		PlayerPrefs.Save();
+		Debug.Log("Game data saved!");
+	}
+
+	private void LoadRecord()
+	{
+		recordedLoaded = true;
+		if (PlayerPrefs.HasKey("FurthestDistance"))
+		{
+			FurthestDistance = PlayerPrefs.GetFloat("FurthestDistance");
+		}
+	}
 }

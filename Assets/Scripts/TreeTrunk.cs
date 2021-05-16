@@ -29,11 +29,11 @@ public class TreeTrunk : MonoBehaviour
 
 		//bonus points
 		int finalPoints = points;
-		if(transform.position.x - bitePosition.x > 1.75f)
+		/*if(transform.position.x - bitePosition.x > 1.75f)
         {
 			//perfect timing
 			finalPoints *= 3;
-        }
+        }*/
 
 		// Show points text
 		pointsText.transform.position = new Vector3(pointsText.transform.position.x, bitePosition.y, 0);

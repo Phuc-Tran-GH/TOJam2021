@@ -42,7 +42,7 @@ public class LevelGenerator : MonoBehaviour
         {
             if (trees[0].transform.position.x < minX)
             {
-                int biomeNumber = (int)((trees[0].transform.position.x - levelStartLocation.x) / biomeLength) % treePool.GetNumTreeTypes();
+                int biomeNumber = Mathf.Min((int)((trees[0].transform.position.x - levelStartLocation.x) / biomeLength), treePool.GetNumTreeTypes());
                 treePool.ReplaceTree(trees[0]);
                 trees.Remove(trees[0]);
             }
