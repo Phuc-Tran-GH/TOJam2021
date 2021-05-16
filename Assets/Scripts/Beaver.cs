@@ -14,6 +14,13 @@ public class Beaver : MonoBehaviour
 
 	[SerializeField] private float ceilingY;
 
+	[SerializeField] private TrailRenderer launchTrail;
+	[SerializeField] private TrailRenderer launchTrailGradient;
+	[SerializeField] private TrailRenderer bounceTrail;
+	[SerializeField] private TrailRenderer bounceTrailGradient;
+	[SerializeField] private TrailRenderer dashTrail;
+	[SerializeField] private TrailRenderer dashTrailFront;
+
 	public float BiteDuration { get; private set; } = 0.2f;
 	public float BiteCooldown { get; private set; } = 0.2f;
 
@@ -71,6 +78,13 @@ public class Beaver : MonoBehaviour
 			glider.SetGlider(UpgradeManager.instance.GetGliderUpgradeNum() - 1);
         }
 		glider.gameObject.SetActive(false);
+
+		launchTrail.emitting = true;
+		launchTrailGradient.emitting = true;
+		bounceTrail.emitting = false;
+		bounceTrailGradient.emitting = false;
+		dashTrail.emitting = false;
+		dashTrailFront.emitting = false;
 	}
 	
 	private void Update()
@@ -80,6 +94,15 @@ public class Beaver : MonoBehaviour
 		if (transform.position.y > ceilingY)
 		{
 			transform.position = new Vector3(transform.position.x, ceilingY, transform.position.z);
+		}
+
+		if (rigidbody2D.velocity.y < 0)
+        {
+			//stop trails
+			launchTrail.emitting = false;
+			launchTrailGradient.emitting = false;
+			bounceTrail.emitting = false;
+			bounceTrailGradient.emitting = false;
 		}
 
 		if (!dead && wasShot && UpgradeManager.instance.GetGliderUpgradeNum() > 0 && rigidbody2D.velocity.y < 0)
@@ -129,6 +152,9 @@ public class Beaver : MonoBehaviour
 			rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 			rigidbody2D.AddTorque(-1);
 			canDash = false;
+
+			dashTrail.emitting = true;
+			dashTrailFront.emitting = true;
 		}
 	}
 
@@ -212,10 +238,16 @@ public class Beaver : MonoBehaviour
 			audio.PlayOneShot(jumpSound);
 
 			rigidbody2D.gravityScale = defaultGravity;
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
 			glider.ResetGlider();
 			glider.gameObject.SetActive(false);
 
 			rigidbody2D.AddForce(new Vector2(1000, 800) * (UpgradeManager.instance.GetSlapUpgradeMultiplier() * Mathf.Pow(0.9f, numSlaps)));
+
+			dashTrail.emitting = false;
+			dashTrailFront.emitting = false;
+			bounceTrail.emitting = true;
+			bounceTrailGradient.emitting = true;
 
 			numSlaps++;
 			if (bonusSlap)
@@ -271,6 +303,12 @@ public class Beaver : MonoBehaviour
 			resetGameCoroutine = StartCoroutine(ResetGameCoroutine());
 		}
 
+		launchTrail.emitting = false;
+		launchTrailGradient.emitting = false;
+		bounceTrail.emitting = false;
+		bounceTrailGradient.emitting = false;
+		dashTrail.emitting = false;
+		dashTrailFront.emitting = false;
 	}
 
 	private void PlayGroundSound()

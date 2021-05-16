@@ -19,6 +19,8 @@ public class CannonBehaviour : MonoBehaviour
     [SerializeField] private GameObject[] cannonBases;
     [SerializeField] private Vector3 startingPosition;
     [SerializeField] private GameObject rootObject;
+    [SerializeField] private GameObject aimer;
+    [SerializeField] private ParticleSystem[] blastParticle;
 
     public float[] yOffsets;
 
@@ -69,6 +71,9 @@ public class CannonBehaviour : MonoBehaviour
             powerBar.Deactivate();
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
+            aimer.SetActive(false);
+
+            blastParticle[UpgradeManager.instance.GetCannonUpgradeNum()].Play();
 
             shot = true;
         }
@@ -139,5 +144,6 @@ public class CannonBehaviour : MonoBehaviour
         }
 
         rootObject.transform.position = new Vector3(startingPosition.x, startingPosition.y + yOffsets[upgradeNum], startingPosition.z);
+        aimer.SetActive(true);
     }
 }

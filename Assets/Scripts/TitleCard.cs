@@ -72,12 +72,17 @@ public class TitleCard : MonoBehaviour
 
 		yield return new WaitForSeconds(0.3f);
 
+		tutorialPanel.SetActive(true);
+		tutorialPanel.transform.localScale = Vector3.zero;
+		LeanTween.scale(tutorialPanel, Vector3.one, 0.2f).setEaseOutBack();
+		yield return new WaitUntil(() => tutorialPanel.activeSelf == false);
+		
 		// enable ui
 		mainDisplay.SetActive(true);
 		cannonBar.SetActive(true);
 		cannon.SetActive(true);
-		
 		followCamera.enabled = true;
+		
 		GameManager.instance.DidStart = true;
 
 		// wait for sound to finish then disable
