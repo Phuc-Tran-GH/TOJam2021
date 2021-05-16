@@ -1067,8 +1067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77, y: 5.7516}
-  m_SizeDelta: {x: 103.50128, y: 61.503128}
+  m_AnchoredPosition: {x: -86.9, y: 0.43443}
+  m_SizeDelta: {x: 82.68106, y: 49.131218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2591314441696680609
 CanvasRenderer:
@@ -1873,16 +1873,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2458316281803356905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.3}
-  m_LocalScale: {x: 0.81851995, y: 0.81851995, z: 0.81851995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2809127390103089048}
-  m_RootOrder: 16
+  m_Father: {fileID: 2809127388869629715}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92, y: -179.1}
-  m_SizeDelta: {x: 103.50128, y: 61.503128}
+  m_AnchoredPosition: {x: -87.9, y: 1.6776}
+  m_SizeDelta: {x: 89.78937, y: 53.355164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7655818088754751393
 CanvasRenderer:
@@ -2347,6 +2347,7 @@ MonoBehaviour:
   cannonCostText: {fileID: 6489538321619712752}
   gliderCostText: {fileID: 4258212126261878540}
   bounceCostText: {fileID: 2816204171768521917}
+  woodIcons: []
 --- !u!1 &2809127388677564786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.8, y: -9.2}
+  m_AnchoredPosition: {x: -37.8, y: -32}
   m_SizeDelta: {x: 226.8884, y: 226.8884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127388677564797
@@ -2606,6 +2607,7 @@ GameObject:
   - component: {fileID: 2809127388869629726}
   - component: {fileID: 2809127388869629725}
   - component: {fileID: 2809127388869629724}
+  - component: {fileID: 7271821215441772879}
   m_Layer: 0
   m_Name: GliderButton
   m_TagString: Untagged
@@ -2625,6 +2627,7 @@ RectTransform:
   m_LocalScale: {x: 0.8185185, y: 0.8185185, z: 0.8185185}
   m_Children:
   - {fileID: 2809127389907623582}
+  - {fileID: 5068081067972483154}
   m_Father: {fileID: 2809127390103089048}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2719,6 +2722,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7271821215441772879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809127388869629714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e2a27aa452a4057aa1be33d3692550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCannon: 0
+  isGlider: 1
+  isBounce: 0
+  image: {fileID: 2809127388869629725}
 --- !u!1 &2809127388871846882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2750,7 @@ GameObject:
   - component: {fileID: 2809127388871846894}
   - component: {fileID: 2809127388871846893}
   - component: {fileID: 2809127388871846892}
+  - component: {fileID: 5999979753685548671}
   m_Layer: 0
   m_Name: CannonButton
   m_TagString: Untagged
@@ -2845,6 +2865,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5999979753685548671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809127388871846882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e2a27aa452a4057aa1be33d3692550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCannon: 1
+  isGlider: 0
+  isBounce: 0
+  image: {fileID: 2809127388871846893}
 --- !u!1 &2809127388969037290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,7 +2915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 0.0000061989}
+  m_AnchoredPosition: {x: -0.000013351, y: 0.000043483}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127388969037205
@@ -3420,7 +3456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260.5, y: -9.2}
+  m_AnchoredPosition: {x: 262.80005, y: -31.999989}
   m_SizeDelta: {x: 216.76614, y: 216.76614}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127389903670471
@@ -3510,7 +3546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: 0.0000014305}
+  m_AnchoredPosition: {x: 0.00002861, y: 1.6776}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127389907623576
@@ -3992,13 +4028,12 @@ RectTransform:
   - {fileID: 2809127390376882275}
   - {fileID: 2809127389152067959}
   - {fileID: 2809127390004089114}
-  - {fileID: 5068081067972483154}
   m_Father: {fileID: 2809127390189821826}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.6, y: 10.556}
+  m_AnchoredPosition: {x: 0.5999756, y: 10.55603}
   m_SizeDelta: {x: 40.706055, y: 21.112793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127390103089050
@@ -4051,6 +4086,10 @@ MonoBehaviour:
   cannonCostText: {fileID: 2809127390699707726}
   gliderCostText: {fileID: 2809127389907623583}
   bounceCostText: {fileID: 2809127388969037204}
+  woodIcons:
+  - {fileID: 7443067386380351925}
+  - {fileID: 2342721312294431637}
+  - {fileID: 5951977464236772213}
 --- !u!1 &2809127390189821830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,7 +4231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322.48, y: 2.3541}
+  m_AnchoredPosition: {x: -320.7, y: -25}
   m_SizeDelta: {x: 267.92853, y: 267.92853}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127390246050458
@@ -4572,6 +4611,7 @@ GameObject:
   - component: {fileID: 2809127390412182597}
   - component: {fileID: 2809127390412182596}
   - component: {fileID: 2809127390412182619}
+  - component: {fileID: 3434489443923290076}
   m_Layer: 0
   m_Name: BounceButton
   m_TagString: Untagged
@@ -4686,6 +4726,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3434489443923290076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809127390412182617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e2a27aa452a4057aa1be33d3692550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCannon: 0
+  isGlider: 0
+  isBounce: 1
+  image: {fileID: 2809127390412182596}
 --- !u!1 &2809127390461324255
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,7 +5057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: -0.000016212}
+  m_AnchoredPosition: {x: -0.000032425, y: 1.2912}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809127390699707727
@@ -5822,8 +5878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81, y: 4.5692}
-  m_SizeDelta: {x: 103.50128, y: 61.503128}
+  m_AnchoredPosition: {x: -89.6, y: -0.0000085831}
+  m_SizeDelta: {x: 88.488846, y: 52.58235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7736576297634112065
 CanvasRenderer:
@@ -6115,6 +6171,7 @@ GameObject:
   - component: {fileID: 2149006467102113174}
   - component: {fileID: 4962472684538417922}
   - component: {fileID: 5353473660406251772}
+  - component: {fileID: 8311182970580874204}
   - component: {fileID: 8591695807402586674}
   m_Layer: 0
   m_Name: HighScoreNum
@@ -6263,7 +6320,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8591695807402586674
+--- !u!114 &8311182970580874204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6271,6 +6328,19 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4463444811071384535}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c683e225a974810b06fe18468d9ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceText: {fileID: 5353473660406251772}
+--- !u!114 &8591695807402586674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463444811071384535}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbbb279db2f70d042a36e62e37ca4c53, type: 3}
   m_Name: 

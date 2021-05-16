@@ -12,12 +12,12 @@ public class HighScoreText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        distanceText.text = $"Total {GameManager.instance.FurthestDistance}";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        distanceText.text = $"{GameManager.instance.FurthestDistance.ToString("F1")}M";
     }
 }
