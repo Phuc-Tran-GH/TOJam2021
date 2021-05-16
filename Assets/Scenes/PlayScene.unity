@@ -917,18 +917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5091f7139384cdd9038425a472593c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1341729483 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 859596401563775519, guid: 3bd665d4d71d64ea3ab4585a490990d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1564566884}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1425020769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1014,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2618617221248310513, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 1573221982}
     - target: {fileID: 2809127388755175915, guid: 3bd665d4d71d64ea3ab4585a490990d8,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1460,30 +1453,30 @@ PrefabInstance:
     - {fileID: 4175013093511984264, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
     - {fileID: 7775674058832098144, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bd665d4d71d64ea3ab4585a490990d8, type: 3}
---- !u!1 &1573221980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2809127389903670468, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+--- !u!114 &1573221982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2809127389903670470, guid: 3bd665d4d71d64ea3ab4585a490990d8,
     type: 3}
   m_PrefabInstance: {fileID: 1564566884}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1573221984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573221980}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d77f688068c4e4c9f8820fb32fc0ef6e, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteArray:
-  - {fileID: 21300000, guid: fd83b4c8ffa0a4da286e70f64f1cf036, type: 3}
-  - {fileID: 21300000, guid: db7c4d2133dd044deaf32ee3fbfa1736, type: 3}
-  - {fileID: 21300000, guid: 2104aaff6ead847d58022477469701a3, type: 3}
-  - {fileID: 21300000, guid: e282e147da1d14e19a70c17e7c45fcea, type: 3}
-  image: {fileID: 1341729483}
+--- !u!114 &1573221985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618617221248310513, guid: 3bd665d4d71d64ea3ab4585a490990d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564566884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b9ed2d4165245a8be38a981862c687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1598235654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1924,7 +1917,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bounceUpgradeIcon
       value: 
-      objectReference: {fileID: 1573221984}
+      objectReference: {fileID: 1573221985}
     - target: {fileID: 555823150858462685, guid: a92e15db92863b9409135b868233db42,
         type: 3}
       propertyPath: levelText

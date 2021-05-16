@@ -24,9 +24,9 @@ public class LevelText : MonoBehaviour
 
 
     void Show(){
-    	cannonLevel.text = $"{upgradeManager.GetCannonUpgradeNum()}";
-    	gliderLevel.text = $"{upgradeManager.GetGliderUpgradeNum()}";
-    	bounceLevel.text = $"{upgradeManager.GetSlapUpgradeNum()}";
+    	cannonLevel.text = $"Lv {upgradeManager.GetCannonUpgradeNum()}";
+    	gliderLevel.text = $"Lv {upgradeManager.GetGliderUpgradeNum()}";
+    	bounceLevel.text = $"Lv {upgradeManager.GetSlapUpgradeNum()}";
     }
 
 }
