@@ -43,7 +43,7 @@ public class TitleCard : MonoBehaviour
 		cannon.SetActive(false);
 		
 		title.transform.localPosition = new Vector3(-118, 969, 0);
-		buttonGroup.transform.localPosition = new Vector3(488, 680, 0);
+		buttonGroup.transform.localPosition = new Vector3(561, 620, 0);
 		
 		// bounce title
 		LeanTween.moveLocalY(title, 37, 1f).setEaseOutBounce();
