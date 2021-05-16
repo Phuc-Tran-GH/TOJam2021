@@ -29,6 +29,9 @@ public class GameManager : Singleton<GameManager>
 		RunWood += wood;
 		WoodChangedEvent?.Invoke(Wood);
 		RunWoodChangedEvent?.Invoke(Wood);
+
+		//allow dashing after collecting wood
+		beaver.AllowSlap();
 	}
 
 	public void SpendWood(int wood)

@@ -68,9 +68,9 @@ public class UpgradeManager : Singleton<UpgradeManager>
         return gliderUpgradeMultipliers[gliderUpgradeNum];
     }
 
-    public int GetSlapUpgradeLevel()
+    public float GetSlapUpgradeMultiplier()
     {
-        return (int)slapUpgradeMultipliers[slapUpgradeNum];
+        return slapUpgradeMultipliers[slapUpgradeNum];
     }
 
     public void UpgradeCannon()

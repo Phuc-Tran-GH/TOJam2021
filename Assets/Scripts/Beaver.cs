@@ -60,7 +60,7 @@ public class Beaver : MonoBehaviour
 		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
-		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel() + 1;
+		//numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel() + 1;
 		Invoke(nameof(AllowSlap), 0.1f);
 
 		glider.ResetGlider();
@@ -119,7 +119,7 @@ public class Beaver : MonoBehaviour
 
 	private void DownDash()
     {
-		if (wasShot && !dead && canDash && numSlaps > 0)
+		if (wasShot && !dead && canDash)
 		{
 			Vector2 direction = new Vector2(0, -dashForce); 
 			transform.rotation = Quaternion.identity;
@@ -202,10 +202,10 @@ public class Beaver : MonoBehaviour
 		PlayGroundSound();
 	}
 
-	private int numSlaps = 0;
+	//private int numSlaps = 0;
 	private void OnGroundCollision()
 	{
-		if (wasShot && !dead && canSlap && numSlaps > 0)
+		if (wasShot && !dead && !canDash && canSlap)// && numSlaps > 0)
 		{
 			audio.PlayOneShot(jumpSound);
 
@@ -213,16 +213,16 @@ public class Beaver : MonoBehaviour
 			glider.ResetGlider();
 			glider.gameObject.SetActive(false);
 
-			if (canDash)
+			/*if (canDash)
 			{
-				rigidbody2D.AddForce(new Vector2(400, 600));
+				//rigidbody2D.AddForce(new Vector2(400, 600));
 			}
 			else
-            {
-				rigidbody2D.AddForce(new Vector2(1000, 800));
-			}
-			numSlaps--;
-			canDash = true;
+            {*/
+				rigidbody2D.AddForce(new Vector2(1000, 800) * UpgradeManager.instance.GetSlapUpgradeMultiplier());
+			//}
+			//numSlaps--;
+			canSlap = false;
 			animator.Play("BeaverJump");
 		}
 
@@ -239,6 +239,7 @@ public class Beaver : MonoBehaviour
 
 		wasShot = false;
 		canSlap = false;
+		canDash = false;
 
 		//open upgrade panel
 		UpgradeManager.instance.OpenUpgradePanel();
@@ -280,9 +281,10 @@ public class Beaver : MonoBehaviour
 		canPlayGroundSound = true;
     }
 
-	private void AllowSlap()
+	public void AllowSlap()
 	{
 		canSlap = true;
+		canDash = true;
 	}
 
 	public void SetTail(int tail)
