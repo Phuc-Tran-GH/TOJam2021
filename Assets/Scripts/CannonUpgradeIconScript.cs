@@ -11,9 +11,13 @@ public class CannonUpgradeIconScript : MonoBehaviour
     public Image image;
     public void UpgradeIcon(int upgradeNum)
     {
-        int index = Mathf.Min(upgradeNum, spriteArray.Length - 1);
+        int index = Mathf.Clamp(upgradeNum - 1, 0, spriteArray.Length - 1);
         Sprite newSprite = spriteArray[index];
         image.sprite = newSprite;
+        
+        var newColor = image.color;
+        newColor.a = upgradeNum == 0 ? 0.3f : 1f;
+        image.color = newColor;
     }
 
 }
