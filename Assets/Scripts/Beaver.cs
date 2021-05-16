@@ -60,7 +60,7 @@ public class Beaver : MonoBehaviour
 		rigidbody2D.gravityScale = defaultGravity;
 		rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
 		rigidbody2D.AddTorque(-1);
-		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel();
+		numSlaps = UpgradeManager.instance.GetSlapUpgradeLevel() + 1;
 		Invoke(nameof(AllowSlap), 0.1f);
 
 		glider.ResetGlider();

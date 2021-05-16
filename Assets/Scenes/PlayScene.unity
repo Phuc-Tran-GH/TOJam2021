@@ -428,11 +428,6 @@ PrefabInstance:
       propertyPath: glider
       value: 
       objectReference: {fileID: 517042896}
-    - target: {fileID: 6348967720931465223, guid: 12b178d640fb49443956ddfc1cfcbe6f,
-        type: 3}
-      propertyPath: ceilingY
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8248826597669313137, guid: 12b178d640fb49443956ddfc1cfcbe6f,
         type: 3}
       propertyPath: m_Name

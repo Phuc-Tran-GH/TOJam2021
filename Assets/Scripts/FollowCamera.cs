@@ -7,6 +7,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] private GameObject beaver;
     [SerializeField] private float xOffset;
     [SerializeField] private float defaultY;
+    [SerializeField] private float maxDeltaY;
     [SerializeField] private float followBeaverHeight;
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class FollowCamera : MonoBehaviour
 
         if (beaver.transform.position.y > followBeaverHeight)
         {
-            pos.y = defaultY + beaver.transform.position.y - followBeaverHeight;
+            pos.y = defaultY + Mathf.Min(maxDeltaY, beaver.transform.position.y - followBeaverHeight);
         }
         else
         {
