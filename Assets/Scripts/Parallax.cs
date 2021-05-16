@@ -12,7 +12,7 @@ public class Parallax : MonoBehaviour
 	private void Start()
 	{
 		startPos = transform.position.x;
-		length = spriteRenderer.bounds.size.x;
+		length = spriteRenderer.bounds.size.x * 2f;
 	}
 
 	private void Update()

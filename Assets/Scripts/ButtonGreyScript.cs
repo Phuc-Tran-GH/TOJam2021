@@ -25,11 +25,12 @@ public class ButtonGreyScript : MonoBehaviour
     {
     	bool result = false;
     	if(isCannon){
-        	result = GameManager.instance.Wood < UpgradeManager.instance.GetCannonUpgradeCost();
+            UpgradeManager.instance.GetCannonUpgradeCost();
+        	result = GameManager.instance.Wood < UpgradeManager.instance.GetCannonUpgradeCost() || !UpgradeManager.instance.HasCannonUpgrade();
         } else if (isGlider){
-        	result = GameManager.instance.Wood < UpgradeManager.instance.GetGliderUpgradeCost();
+        	result = GameManager.instance.Wood < UpgradeManager.instance.GetGliderUpgradeCost() || !UpgradeManager.instance.HasGliderUpgrade();
         } else if (isBounce){
-        	result = GameManager.instance.Wood < UpgradeManager.instance.GetSlapUpgradeCost();
+        	result = GameManager.instance.Wood < UpgradeManager.instance.GetSlapUpgradeCost() || !UpgradeManager.instance.HasSlapUpgrade();
         }
 
         if (result){
