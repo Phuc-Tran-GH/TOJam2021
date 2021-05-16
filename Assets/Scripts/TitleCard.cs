@@ -53,7 +53,7 @@ public class TitleCard : MonoBehaviour
 		yield return new WaitForSeconds(0.6f);
 
 		// bounce play button
-		LeanTween.moveLocalY(buttonGroup, -222, 0.8f).setEaseOutBounce();
+		LeanTween.moveLocalY(buttonGroup, -346.62f, 0.8f).setEaseOutBounce();
 		yield return new WaitForSeconds(0.2f);
 		bounceSound.Play();
 	}
