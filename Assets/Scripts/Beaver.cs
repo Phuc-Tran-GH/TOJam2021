@@ -28,10 +28,12 @@ public class Beaver : MonoBehaviour
 	private bool dead;
 	private bool wasShot;
 	private bool canBite = true;
+	private bool canDash = true;
 	private bool canPlayGroundSound = true;
 	private bool canSlap;
 
 	private float defaultGravity = 0.9f;
+	private float dashForce = 2000f;
 
     private void Start()
     {
@@ -93,6 +95,10 @@ public class Beaver : MonoBehaviour
 		{
 			Bite();
 		}
+		else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftControl))
+        {
+			DownDash();
+        }
 	}
 
 	private void Bite()
@@ -108,6 +114,19 @@ public class Beaver : MonoBehaviour
 			canBite = false;
 
 			Invoke(nameof(FinishBite), BiteDuration);
+		}
+	}
+
+	private void DownDash()
+    {
+		if (wasShot && !dead && canDash && numSlaps > 0)
+		{
+			Vector2 direction = new Vector2(0, -dashForce); 
+			transform.rotation = Quaternion.identity;
+			rigidbody2D.gravityScale = defaultGravity;
+			rigidbody2D.AddForce(direction * UpgradeManager.instance.GetCannonUpgradeMultiplier());
+			rigidbody2D.AddTorque(-1);
+			canDash = false;
 		}
 	}
 
@@ -194,8 +213,16 @@ public class Beaver : MonoBehaviour
 			glider.ResetGlider();
 			glider.gameObject.SetActive(false);
 
-			rigidbody2D.AddForce(new Vector2(400, 800));
+			if (canDash)
+			{
+				rigidbody2D.AddForce(new Vector2(400, 600));
+			}
+			else
+            {
+				rigidbody2D.AddForce(new Vector2(1000, 800));
+			}
 			numSlaps--;
+			canDash = true;
 			animator.Play("BeaverJump");
 		}
 
